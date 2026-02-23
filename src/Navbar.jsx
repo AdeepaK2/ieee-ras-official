@@ -18,21 +18,29 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="glass sticky top-4 z-50 mx-4 px-6 py-4 flex justify-between items-center">
+    <nav className="glass sticky top-4 z-50 mx-4 px-6 py-4 flex justify-between items-center transition-all duration-300 hover:shadow-xl dark:bg-black/40 dark:border-white/10 dark:backdrop-blur-xl">
       <div className="flex items-center gap-3">
-        {/* Placeholder for Logo, will use the provided images later based on theme */}
-        <div className="w-10 h-10 bg-gradient-to-br from-primary-dark to-primary-light rounded-lg shadow flex items-center justify-center text-white font-bold text-xl">
-          R
-        </div>
-        <div className="text-2xl font-extrabold text-gradient hidden sm:block">
-          RAS
-        </div>
+        <a href="#home" className="h-16 w-auto flex items-center">
+          {/* Light Theme Logo */}
+          <img
+            src="/RAS_SB_2 (1).PNG"
+            alt="RAS Logo Light"
+            className="h-full w-auto object-contain dark:hidden scale-[1.35] origin-left"
+          />
+          {/* Dark Theme Logo -> Use brightness-0 invert to make it pure white on dark mode */}
+          <img
+            src="/RAS_SB_1.PNG"
+            alt="RAS Logo Dark"
+            className="h-full w-auto object-contain hidden dark:block brightness-0 invert scale-[1.35] origin-left"
+          />
+        </a>
       </div>
 
-      <div className="hidden md:flex gap-8 items-center text-gray-600 dark:text-gray-300">
-        <a href="#home" className="font-medium hover:text-primary-dark dark:hover:text-primary-light transition-colors">Home</a>
-        <a href="#services" className="font-medium hover:text-primary-dark dark:hover:text-primary-light transition-colors">Services</a>
-        <a href="#about" className="font-medium hover:text-primary-dark dark:hover:text-primary-light transition-colors">About</a>
+      <div className="hidden md:flex gap-8 items-center text-gray-700 dark:text-gray-300">
+        <a href="#home" className="font-semibold hover:text-primary-dark dark:hover:text-primary-light transition-colors">Home</a>
+        <a href="#events" className="font-semibold hover:text-primary-dark dark:hover:text-primary-light transition-colors">Events</a>
+        <a href="#about" className="font-semibold hover:text-primary-dark dark:hover:text-primary-light transition-colors">About</a>
+        <a href="#awards" className="font-semibold hover:text-primary-dark dark:hover:text-primary-light transition-colors">Awards</a>
       </div>
 
       <div className="flex items-center gap-4">
