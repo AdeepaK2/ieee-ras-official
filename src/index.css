@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased text-gray-900 bg-white dark:bg-black dark:text-white transition-colors duration-300;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading font-bold;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-dark to-primary-light bg-clip-text text-transparent;
+  }
+
+  .glass {
+    @apply bg-white/5 dark:bg-white/5 backdrop-blur-md border border-black/10 dark:border-white/10 shadow-lg rounded-2xl;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 rounded-full font-semibold text-white bg-gradient-to-r from-primary-dark to-primary-light hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300;
+  }
+}
+
+/* Background Effects */
+.bg-glow {
+  @apply absolute w-[60vw] h-[60vh] rounded-full blur-[80px] -z-10 pointer-events-none opacity-50 dark:opacity-30;
+}
+
+.glow-top-right {
+  @apply top-[-20vh] right-[-20vw] bg-primary-light/30;
+}
+
+.glow-bottom-left {
+  @apply bottom-[-20vh] left-[-20vw] bg-primary-dark/30;
+}
