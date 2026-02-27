@@ -1,170 +1,126 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function HeroSection() {
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15, delayChildren: 0.1 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+  };
+
   return (
-    <section id="home" className="min-h-screen flex flex-col justify-center relative overflow-hidden bg-gray-50 dark:bg-zinc-950 transition-colors duration-500 pt-20">
+    <section id="home" className="min-h-screen flex flex-col justify-center relative overflow-hidden bg-white dark:bg-zinc-950 transition-colors duration-500 pt-20">
 
-      {/* Background Shapes and Color Gradients for Light Mode */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-100 dark:opacity-0 transition-opacity duration-500">
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary-light/5 rotate-12 blur-3xl rounded-full mix-blend-multiply"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-primary-dark/5 -rotate-12 blur-3xl mix-blend-multiply"></div>
+      {/* Dynamic Background Effects */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        {/* Animated Grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(151,1,45,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(98,18,107,0.03)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_70%)] opacity-70"></div>
 
-        {/* Subtle geometric lines abstracting "tech" background */}
-        <div className="absolute top-20 right-20 opacity-30">
-          <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 400L400 0M50 400L400 50M100 400L400 100" stroke="#62126b" strokeOpacity="0.2" strokeWidth="1" strokeDasharray="4 4" />
-          </svg>
-        </div>
-        <div className="absolute bottom-40 left-10 opacity-30">
-          <svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 300L300 0M0 250L250 0M0 200L200 0" stroke="#97012d" strokeOpacity="0.2" strokeWidth="1" />
-          </svg>
-        </div>
+        {/* Glowing Orbs */}
+        <div className="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] bg-primary-light/10 dark:bg-primary-light/5 rounded-full blur-3xl mix-blend-multiply dark:mix-blend-screen animate-blob"></div>
+        <div className="absolute top-1/3 right-1/4 w-[35vw] h-[35vw] max-w-[450px] max-h-[450px] bg-primary-dark/10 dark:bg-primary-dark/5 rounded-full blur-3xl mix-blend-multiply dark:mix-blend-screen animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-[45vw] h-[45vw] max-w-[600px] max-h-[600px] bg-purple-600/10 dark:bg-purple-600/5 rounded-full blur-3xl mix-blend-multiply dark:mix-blend-screen animate-blob animation-delay-4000"></div>
       </div>
 
-      {/* Background Shapes and Color Gradients for Dark Mode */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-0 dark:opacity-100 transition-opacity duration-500">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(98,18,107,0.15)_0%,transparent_60%)]"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-primary-dark/20 to-transparent"></div>
-      </div>
+      {/* Main Content Container */}
+      <div className="container mx-auto px-4 z-10 flex flex-col items-center text-center mt-[-15vh] md:mt-[-20vh]">
 
-      {/* Main Content Container matching the reference image layout */}
-      <div className="container mx-auto px-4 z-10 flex flex-col items-center text-center mt-[-5vh]">
-
-        {/* "Welcome" in cursive */}
-        <h1
-          className="text-7xl md:text-[6rem] lg:text-[7rem] text-primary-dark dark:text-primary-light drop-shadow-sm mb-4"
-          style={{ fontFamily: "'Great Vibes', cursive", fontWeight: 400 }}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-col items-center"
         >
-          Welcome
-        </h1>
+          {/* Badge / Overline */}
+          <motion.div variants={itemVariants} className="mb-6">
+            <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-semibold tracking-widest uppercase bg-primary-dark/10 dark:bg-primary-light/10 text-primary-dark dark:text-primary-light border border-primary-dark/20 dark:border-primary-light/20 backdrop-blur-sm shadow-[0_0_15px_rgba(151,1,45,0.1)]">
+              Welcome To
+            </span>
+          </motion.div>
 
-        {/* Main Society Name */}
-        <h2 className="text-3xl md:text-5xl lg:text-5xl font-extrabold text-gray-800 dark:text-gray-100 mb-2 tracking-wide font-heading">
-          IEEE <span className="text-primary-dark dark:text-primary-light">Robotics & Automation</span> Society
-        </h2>
+          {/* Main Society Name */}
+          <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 dark:text-gray-50 mb-4 tracking-tight font-heading leading-tight drop-shadow-sm">
+            IEEE <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary-light filter drop-shadow-md">Robotics & Automation</span> Society
+          </motion.h1>
 
-        {/* University Name */}
-        <h3 className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 font-medium mb-1 tracking-wider uppercase">
-          University of Moratuwa
-        </h3>
+          {/* University Name */}
+          <motion.h2 variants={itemVariants} className="text-xl md:text-3xl text-gray-700 dark:text-gray-300 font-medium mb-2 tracking-wider uppercase font-body">
+            University of Moratuwa
+          </motion.h2>
 
-        <h4 className="text-lg md:text-xl text-gray-500 dark:text-gray-400 font-medium mb-16 tracking-widest">
-          SRI LANKA
-        </h4>
+          <motion.h3 variants={itemVariants} className="text-md md:text-xl text-gray-500 dark:text-gray-400 font-medium mb-12 tracking-[0.3em] uppercase">
+            Sri Lanka
+          </motion.h3>
 
-        {/* Slogan with mixed cursive and block text */}
-        <div className="text-2xl md:text-3xl lg:text-4xl text-gray-800 dark:text-gray-200 mt-4 flex flex-wrap justify-center items-center gap-x-3 gap-y-2">
-          <span style={{ fontFamily: "'Great Vibes', cursive" }}>Inspired by</span>
-          <span style={{ fontFamily: "'Great Vibes', cursive" }} className="text-primary-light dark:text-primary-light">Passion</span>
-          <span className="bg-primary-dark dark:bg-zinc-800 text-white dark:text-gray-100 text-sm md:text-base font-bold px-4 py-2 rotate-[-5deg] shadow-lg rounded-sm inline-block">to</span>
-          <span style={{ fontFamily: "'Great Vibes', cursive" }}>Transform beyond</span>
-          <span style={{ fontFamily: "'Great Vibes', cursive" }} className="text-primary-light dark:text-primary-light">Excellence</span>
-        </div>
+          {/* Premium Slogan */}
+          <motion.div variants={itemVariants} className="relative py-4 px-8 mt-4 glass border-white/20 shadow-xl overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/5 to-primary-light/5 dark:from-primary-dark/10 dark:to-primary-light/10 transform opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <p className="text-xl md:text-2xl lg:text-3xl text-gray-800 dark:text-gray-200 font-medium font-heading tracking-wide relative z-10">
+              Inspired by <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-primary-dark">Passion</span> to Transform beyond <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary-light">Excellence</span>
+            </p>
+          </motion.div>
+        </motion.div>
       </div>
 
-      {/* Illustrated Bottom Section (Gears / Automation Concept) - Themed in Purple/Red/Metallic */}
-      <div className="absolute bottom-0 left-0 w-full h-[40vh] md:h-[50vh] z-0 pointer-events-none opacity-90 dark:opacity-40 flex items-end justify-center overflow-hidden">
-
-        <svg viewBox="0 0 1600 500" className="w-[120vw] min-w-[1400px] h-full object-cover origin-bottom animate-pan" preserveAspectRatio="xMidYMax slice" fill="none" xmlns="http://www.w3.org/2000/svg">
-
-          {/* BACKGROUND LAYER: Flowing data streams and circuits */}
-          <path d="M 0 450 Q 400 350 800 450 T 1600 350" stroke="url(#chainGrad)" strokeWidth="4" strokeDasharray="10 20" fill="none" strokeLinecap="round" className="animate-draw-line dark:opacity-50" />
-          <path d="M 0 400 Q 300 300 700 400 T 1600 300" stroke="#d1d5db" strokeWidth="2" strokeDasharray="5 15" fill="none" className="dark:stroke-zinc-700 animate-draw-line" style={{ animationDirection: 'reverse', animationDuration: '30s' }} />
+      {/* Abstract Tech Core Animation at Bottom */}
+      <div className="absolute bottom-0 left-0 w-full h-[45vh] md:h-[55vh] z-0 pointer-events-none flex items-end justify-center mix-blend-luminosity opacity-80 dark:opacity-50">
+        <svg viewBox="0 0 1000 400" className="w-[120vw] min-w-[1200px] h-full object-cover origin-bottom" preserveAspectRatio="xMidYMax slice" fill="none" xmlns="http://www.w3.org/2000/svg">
 
           <defs>
-            <linearGradient id="chainGrad" x1="0" y1="0" x2="1600" y2="0" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#62126b" stopOpacity="0.4" className="dark:stop-opacity-100" />
-              <stop offset="0.5" stopColor="#97012d" stopOpacity="0.4" className="dark:stop-opacity-100" />
-              <stop offset="1" stopColor="#62126b" stopOpacity="0.4" className="dark:stop-opacity-100" />
+            <linearGradient id="glowLine" x1="0" y1="0" x2="1" y2="0">
+              <stop stopColor="rgba(151,1,45,0)" />
+              <stop offset="0.5" stopColor="rgba(151,1,45,0.8)" />
+              <stop offset="1" stopColor="rgba(98,18,107,0)" />
             </linearGradient>
-            <radialGradient id="glowBtn" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(250 -20) rotate(90) scale(35)">
-              <stop stopColor="#97012d" stopOpacity="0.8" />
-              <stop offset="1" stopColor="#97012d" stopOpacity="0" />
+            <radialGradient id="coreGlow" cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0%" stopColor="rgba(98,18,107,0.4)" />
+              <stop offset="100%" stopColor="rgba(98,18,107,0)" />
             </radialGradient>
           </defs>
 
-          {/* LEFT SYSTEM: Giant Drive Machinery */}
-          <g transform="translate(150, 250) scale(1.8)" className="origin-center animate-spin-slow">
-            {/* Outer casing */}
-            <path d="M -90 0 A 90 90 0 1 1 90 0 A 90 90 0 1 1 -90 0" stroke="#e5e7eb" strokeWidth="20" strokeDasharray="30 10" fill="none" className="dark:stroke-zinc-800" />
-            {/* Base Gear body */}
-            <circle cx="0" cy="0" r="80" stroke="#d1d5db" strokeWidth="8" fill="#f8fafc" className="dark:fill-zinc-900 dark:stroke-zinc-700" />
-            {/* Inner dashed ring */}
-            <circle cx="0" cy="0" r="60" stroke="#9ca3af" strokeWidth="2" fill="none" className="dark:stroke-zinc-600" strokeDasharray="4 4" />
-            {/* Inner solid ring */}
-            <circle cx="0" cy="0" r="30" stroke="#62126b" strokeWidth="6" fill="#ffffff" className="dark:fill-black dark:stroke-primary-dark" />
-            {/* Center dot */}
-            <circle cx="0" cy="0" r="10" fill="#62126b" className="dark:fill-primary-dark animate-pulse-slow" />
-            {/* Gear Teeth */}
-            {[...Array(16)].map((_, i) => (
-              <path key={`tooth1-${i}`} d="M -12 -80 L 12 -80 L 15 -98 L -15 -98 Z" fill="#d1d5db" transform={`rotate(${i * 22.5})`} className="dark:fill-zinc-700" />
-            ))}
+          {/* Surrounding curved data rings */}
+          <g className="origin-[500px_400px] animate-spin-slow">
+            <ellipse cx="500" cy="400" rx="400" ry="200" stroke="url(#glowLine)" strokeWidth="1" fill="none" className="opacity-40" />
+            <path d="M 100 400 A 400 200 0 0 1 900 400" stroke="#97012d" strokeWidth="2" strokeDasharray="10 30" fill="none" className="opacity-50 animate-draw-line" />
+            <ellipse cx="500" cy="400" rx="300" ry="150" stroke="url(#glowLine)" strokeWidth="2" fill="none" className="opacity-60" />
+            <path d="M 200 400 A 300 150 0 0 0 800 400" stroke="#62126b" strokeWidth="3" strokeDasharray="5 15" fill="none" className="opacity-70 animate-draw-line" style={{ animationDirection: 'reverse' }} />
           </g>
 
-          {/* MIDDLE SYSTEM: Conveyor/Transfer Gears */}
-          <g transform="translate(550, 350) scale(1.4)" className="origin-center animate-spin-slow-reverse">
-            <circle cx="0" cy="0" r="60" stroke="#e5e7eb" strokeWidth="12" fill="#e5e7eb" className="dark:fill-zinc-800 dark:stroke-zinc-700" />
-            <circle cx="0" cy="0" r="20" stroke="#97012d" strokeWidth="4" fill="#f9fafb" className="dark:fill-zinc-900 dark:stroke-primary-light" />
-            <circle cx="0" cy="0" r="8" fill="#97012d" className="dark:fill-primary-light" />
-            {/* Gear Teeth */}
-            {[...Array(12)].map((_, i) => (
-              <circle key={`tooth2-${i}`} cx="0" cy="-65" r="8" fill="#d1d5db" transform={`rotate(${i * 30})`} className="dark:fill-zinc-700" />
-            ))}
-          </g>
+          {/* Geometric floating nodes */}
+          <g className="origin-[500px_400px]">
+            {/* Center Core */}
+            <circle cx="500" cy="400" r="150" fill="url(#coreGlow)" className="animate-pulse-slow" />
+            <path d="M 450 400 L 500 320 L 550 400 Z" fill="rgba(151,1,45,0.15)" stroke="#97012d" strokeWidth="1" className="animate-float" />
+            <path d="M 450 400 L 500 480 L 550 400 Z" fill="rgba(98,18,107,0.15)" stroke="#62126b" strokeWidth="1" className="animate-float animation-delay-1000" />
 
-          {/* Conveyor Belt connecting left to middle */}
-          <path d="M 270 120 L 510 270" stroke="#9ca3af" strokeWidth="6" strokeDasharray="15 15" className="animate-draw-line dark:stroke-zinc-600" />
-          <path d="M 310 370 L 490 410" stroke="#9ca3af" strokeWidth="6" strokeDasharray="15 15" className="animate-draw-line dark:stroke-zinc-600" />
+            {/* Inner rotating hexagon ring */}
+            <g className="origin-[500px_400px] animate-spin-slow-reverse">
+              {[...Array(6)].map((_, i) => (
+                <polygon key={i} points="500,280 515,300 500,320 485,300" fill="none" stroke="#d1d5db" strokeWidth="1" className="opacity-50 dark:opacity-30" transform={`rotate(${i * 60} 500 400)`} />
+              ))}
+              <circle cx="500" cy="400" r="120" stroke="#9ca3af" strokeWidth="1" strokeDasharray="4 8" fill="none" className="opacity-40" />
+            </g>
 
-          {/* RIGHT SYSTEM: Complex Robotic Assembly Arm */}
-          <g transform="translate(1000, 380)">
-            {/* Base Mount */}
-            <path d="M -80 150 L -60 0 L 60 0 L 80 150 Z" fill="#e5e7eb" className="dark:fill-zinc-800" />
-            <circle cx="0" cy="0" r="40" fill="#d1d5db" className="dark:fill-zinc-700" />
+            {/* Connecting Rays */}
+            <path d="M 500 400 L 300 250 M 500 400 L 700 250 M 500 400 L 500 150" stroke="url(#glowLine)" strokeWidth="2" strokeDasharray="10 5" fill="none" className="opacity-40 animate-draw-line" />
 
-            {/* Main Arm moving up and down */}
-            <g className="animate-[float_6s_ease-in-out_infinite_alternate] origin-bottom delay-1000">
-              {/* Arm Beam 1 */}
-              <path d="M -20 -20 L -180 -180 L -150 -200 L 10 -40 Z" fill="#9ca3af" className="dark:fill-zinc-600" />
-              {/* Elbow Joint */}
-              <circle cx="-165" cy="-190" r="30" fill="#62126b" className="dark:fill-primary-dark" />
-              <circle cx="-165" cy="-190" r="10" fill="#ffffff" className="dark:fill-black" />
-
-              {/* Arm Beam 2 */}
-              <g transform="translate(-165, -190) rotate(20) ">
-                <path d="M -20 -20 L 150 -60 L 160 -20 L 20 20 Z" fill="#d1d5db" className="dark:fill-zinc-700" />
-
-                {/* Wrist/Effector Joint */}
-                <circle cx="155" cy="-40" r="25" stroke="#97012d" strokeWidth="6" fill="#f3f4f6" className="dark:fill-zinc-800 dark:stroke-primary-light" />
-
-                {/* Glowing Laser / Effector Tool */}
-                <circle cx="155" cy="-40" r="30" fill="url(#glowBtn)" className="animate-pulse-slow" />
-                <path d="M 175 -50 L 230 -70 M 170 -25 L 220 -15" stroke="#62126b" strokeWidth="8" strokeLinecap="round" className="dark:stroke-primary-dark" />
-                {/* Laser Beam */}
-                <line x1="230" y1="-42.5" x2="400" y2="-42.5" stroke="#ef4444" strokeWidth="4" strokeDasharray="20 10" className="animate-draw-line opacity-50" />
-              </g>
+            {/* Floating particles */}
+            <g className="animate-float">
+              <circle cx="300" cy="250" r="4" fill="#97012d" className="animate-pulse-slow" />
+              <circle cx="700" cy="250" r="4" fill="#62126b" className="animate-pulse-slow animation-delay-2000" />
+              <circle cx="500" cy="150" r="6" fill="#f8fafc" className="dark:fill-zinc-300 animate-pulse-slow animation-delay-4000" />
             </g>
           </g>
 
-          {/* BACKGROUND SYSTEM: Floating Drones / Chips */}
-          <g transform="translate(1300, 150)" className="animate-float">
-            <rect x="-40" y="-20" width="80" height="40" rx="10" fill="#ffffff" stroke="#d1d5db" strokeWidth="4" className="dark:fill-zinc-900 dark:stroke-zinc-700" />
-            <circle cx="-20" cy="0" r="6" fill="#97012d" className="animate-pulse-slow" />
-            <circle cx="0" cy="0" r="6" fill="#6b7280" />
-            <circle cx="20" cy="0" r="6" fill="#62126b" />
-            {/* Drone Props */}
-            <path d="M -50 -30 L -30 -20 M 30 -20 L 50 -30" stroke="#9ca3af" strokeWidth="4" strokeLinecap="round" className="dark:stroke-zinc-600" />
-            <ellipse cx="-50" cy="-30" rx="20" ry="4" fill="#6b7280" className="dark:fill-zinc-700 animate-spin-fast" />
-            <ellipse cx="50" cy="-30" rx="20" ry="4" fill="#6b7280" className="dark:fill-zinc-700 animate-spin-fast" />
-          </g>
-          <g transform="translate(850, 100)" className="animate-float" style={{ animationDelay: '2s' }}>
-            <path d="M 0 -15 L 15 0 L 0 15 L -15 0 Z" fill="#97012d" className="animate-pulse-slow" />
-            <path d="M -30 0 L -15 0 M 15 0 L 30 0 M 0 -30 L 0 -15 M 0 15 L 0 30" stroke="#d1d5db" strokeWidth="2" className="dark:stroke-zinc-700" />
-          </g>
-
         </svg>
-
       </div>
     </section>
   );
