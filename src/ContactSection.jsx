@@ -27,7 +27,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 dark:text-white">Email Us</h4>
-                    <a href="mailto:ieee.ras.uom@gmail.com" className="text-primary-dark dark:text-primary-light hover:underline font-medium">ieee.ras.uom@gmail.com</a>
+                    <a href="mailto:ieee.ras.university.of.moratuwa@gmail.com" className="text-primary-dark dark:text-primary-light hover:underline font-medium break-all">ieee.ras.university.of.moratuwa@gmail.com</a>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">

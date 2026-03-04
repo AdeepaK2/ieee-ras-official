@@ -58,7 +58,7 @@ export default function Footer() {
             Department of Electronic and Telecommunication Engineering, <br />
             University of Moratuwa, Sri Lanka.
           </p>
-          <a href="mailto:ieee.ras.uom@gmail.com" className="text-sm font-bold text-primary-dark dark:text-primary-light hover:underline">ieee.ras.uom@gmail.com</a>
+          <a href="mailto:ieee.ras.university.of.moratuwa@gmail.com" className="text-sm font-bold text-primary-dark dark:text-primary-light hover:underline break-all">ieee.ras.university.of.moratuwa@gmail.com</a>
         </div>
 
       </div>
