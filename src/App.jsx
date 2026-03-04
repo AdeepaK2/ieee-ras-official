@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import HeroSection from './HeroSection';
+import FeaturesSection from './FeaturesSection';
 import AboutSection from './AboutSection';
 import CommitteeSection from './CommitteeSection';
 import EventsSection from './EventsSection';
@@ -26,7 +27,12 @@ function App() {
       <Navbar />
       <main className="main-content flex-grow">
         <Routes>
-          <Route path="/" element={<HeroSection />} />
+          <Route path="/" element={
+            <>
+              <HeroSection />
+              <FeaturesSection />
+            </>
+          } />
           <Route path="/about" element={<AboutSection />} />
           <Route path="/committee" element={<CommitteeSection />} />
           <Route path="/events" element={<EventsSection />} />
