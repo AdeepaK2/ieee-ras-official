@@ -66,26 +66,56 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Simplistic Base Line Animation at Bottom */}
-      <div className="absolute bottom-0 left-0 w-full h-[30vh] md:h-[40vh] z-0 pointer-events-none flex items-end justify-center mix-blend-luminosity opacity-40 dark:opacity-20 translate-y-20">
-        <svg viewBox="0 0 1000 400" className="w-[100vw] min-w-[1000px] h-full object-cover origin-bottom" preserveAspectRatio="xMidYMax slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Abstract Tech Core Animation at Bottom */}
+      <div className="absolute bottom-0 left-0 w-full h-[45vh] md:h-[55vh] z-0 pointer-events-none flex items-end justify-center mix-blend-luminosity opacity-80 dark:opacity-50">
+        <svg viewBox="0 0 1000 400" className="w-[120vw] min-w-[1200px] h-full object-cover origin-bottom" preserveAspectRatio="xMidYMax slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+
           <defs>
             <linearGradient id="glowLine" x1="0" y1="0" x2="1" y2="0">
               <stop stopColor="rgba(151,1,45,0)" />
-              <stop offset="0.5" stopColor="rgba(151,1,45,0.4)" />
+              <stop offset="0.5" stopColor="rgba(151,1,45,0.8)" />
               <stop offset="1" stopColor="rgba(98,18,107,0)" />
             </linearGradient>
+            <radialGradient id="coreGlow" cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0%" stopColor="rgba(98,18,107,0.4)" />
+              <stop offset="100%" stopColor="rgba(98,18,107,0)" />
+            </radialGradient>
           </defs>
 
-          {/* Minimal arcs */}
-          <g className="origin-[500px_400px]">
+          {/* Surrounding curved data rings */}
+          <g className="origin-[500px_400px] animate-spin-slow">
             <ellipse cx="500" cy="400" rx="400" ry="200" stroke="url(#glowLine)" strokeWidth="1" fill="none" className="opacity-40" />
-            <path d="M 100 400 A 400 200 0 0 1 900 400" stroke="#97012d" strokeWidth="1" strokeDasharray="5 15" fill="none" className="opacity-30" />
-            <ellipse cx="500" cy="400" rx="300" ry="150" stroke="url(#glowLine)" strokeWidth="1" fill="none" className="opacity-40" />
-
-            {/* Center Core - Simplified */}
-            <circle cx="500" cy="400" r="100" stroke="rgba(151,1,45,0.2)" strokeWidth="1" fill="none" />
+            <path d="M 100 400 A 400 200 0 0 1 900 400" stroke="#97012d" strokeWidth="2" strokeDasharray="10 30" fill="none" className="opacity-50 animate-draw-line" />
+            <ellipse cx="500" cy="400" rx="300" ry="150" stroke="url(#glowLine)" strokeWidth="2" fill="none" className="opacity-60" />
+            <path d="M 200 400 A 300 150 0 0 0 800 400" stroke="#62126b" strokeWidth="3" strokeDasharray="5 15" fill="none" className="opacity-70 animate-draw-line" style={{ animationDirection: 'reverse' }} />
           </g>
+
+          {/* Geometric floating nodes */}
+          <g className="origin-[500px_400px]">
+            {/* Center Core */}
+            <circle cx="500" cy="400" r="150" fill="url(#coreGlow)" className="animate-pulse-slow" />
+            <path d="M 450 400 L 500 320 L 550 400 Z" fill="rgba(151,1,45,0.15)" stroke="#97012d" strokeWidth="1" className="animate-float" />
+            <path d="M 450 400 L 500 480 L 550 400 Z" fill="rgba(98,18,107,0.15)" stroke="#62126b" strokeWidth="1" className="animate-float animation-delay-1000" />
+
+            {/* Inner rotating hexagon ring */}
+            <g className="origin-[500px_400px] animate-spin-slow-reverse">
+              {[...Array(6)].map((_, i) => (
+                <polygon key={i} points="500,280 515,300 500,320 485,300" fill="none" stroke="#d1d5db" strokeWidth="1" className="opacity-50 dark:opacity-30" transform={`rotate(${i * 60} 500 400)`} />
+              ))}
+              <circle cx="500" cy="400" r="120" stroke="#9ca3af" strokeWidth="1" strokeDasharray="4 8" fill="none" className="opacity-40" />
+            </g>
+
+            {/* Connecting Rays */}
+            <path d="M 500 400 L 300 250 M 500 400 L 700 250 M 500 400 L 500 150" stroke="url(#glowLine)" strokeWidth="2" strokeDasharray="10 5" fill="none" className="opacity-40 animate-draw-line" />
+
+            {/* Floating particles */}
+            <g className="animate-float">
+              <circle cx="300" cy="250" r="4" fill="#97012d" className="animate-pulse-slow" />
+              <circle cx="700" cy="250" r="4" fill="#62126b" className="animate-pulse-slow animation-delay-2000" />
+              <circle cx="500" cy="150" r="6" fill="#f8fafc" className="dark:fill-zinc-300 animate-pulse-slow animation-delay-4000" />
+            </g>
+          </g>
+
         </svg>
       </div>
     </section>
