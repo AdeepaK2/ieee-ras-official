@@ -36,11 +36,13 @@ export default function Navbar() {
         </a>
       </div>
 
-      <div className="hidden md:flex gap-8 items-center text-gray-700 dark:text-gray-300">
+      <div className="hidden md:flex gap-6 lg:gap-8 items-center text-gray-700 dark:text-gray-300">
         <a href="#home" className="font-semibold hover:text-primary-dark dark:hover:text-primary-light transition-colors">Home</a>
+        <a href="#about" className="font-semibold hover:text-primary-dark dark:hover:text-primary-light transition-colors">About Us</a>
+        <a href="#committee" className="font-semibold hover:text-primary-dark dark:hover:text-primary-light transition-colors">Committee</a>
         <a href="#events" className="font-semibold hover:text-primary-dark dark:hover:text-primary-light transition-colors">Events</a>
-        <a href="#about" className="font-semibold hover:text-primary-dark dark:hover:text-primary-light transition-colors">About</a>
-        <a href="#awards" className="font-semibold hover:text-primary-dark dark:hover:text-primary-light transition-colors">Awards</a>
+        <a href="#projects" className="font-semibold hover:text-primary-dark dark:hover:text-primary-light transition-colors">Projects</a>
+        <a href="#gallery" className="font-semibold hover:text-primary-dark dark:hover:text-primary-light transition-colors">Gallery</a>
       </div>
 
       <div className="flex items-center gap-4">
@@ -59,9 +61,9 @@ export default function Navbar() {
             </svg>
           )}
         </button>
-        <button className="btn-primary">
+        <a href="#contact" className="btn-primary">
           Contact Us
-        </button>
+        </a>
       </div>
     </nav>
   );

@@ -1,32 +1,42 @@
 import React from 'react';
+import { FlagIcon, CpuChipIcon, BuildingLibraryIcon, BriefcaseIcon } from '@heroicons/react/24/outline';
 
 const events = [
   {
-    type: 'Upcoming',
-    title: 'Robotics Workshop 2026',
-    date: 'Oct 15, 2026',
-    desc: 'An intensive two-day hands-on workshop covering advanced ROS integration and autonomous navigation.',
-    objectives: 'Introduce ROS concepts, practical node communication, and map generation algorithms.',
-    highlights: ['Expert Speakers', '10+ Hours of Practical Sessions', 'Certification of Completion'],
-    img: '🤖', // Placeholder for image, using emoji for demo
-  },
-  {
-    type: 'Flagship Event',
-    title: 'MaxeX 1.0 - Micromouse Competition',
-    date: 'Dec 05, 2026',
-    desc: 'Our premier annual competition where teams build autonomous micromouse robots to navigate a complex maze.',
-    objectives: 'Fostering innovation in autonomous navigation and hardware design among university undergraduates.',
-    highlights: ['50+ Participating Teams', 'LKR 150,000 Prize Pool', 'Industry Sponsorships'],
-    img: '🏁',
+    type: 'Upcoming / Flagship',
+    title: 'MazeX 1.0 – Micromouse Competition',
+    date: 'Upcoming',
+    desc: 'A competitive robotics challenge where students design and develop autonomous micromouse robots capable of navigating complex maze environments.',
+    objectives: 'Promote hands-on learning in robotics, encourage innovation in autonomous navigation, and strengthen teamwork.',
+    highlights: ['Custom-built maze arena', 'Technical mentoring sessions', 'Speed-based performance evaluation', 'Industry judging panel'],
+    img: <FlagIcon className="w-24 h-24 text-primary-dark dark:text-primary-light drop-shadow-xl" />,
   },
   {
     type: 'Past',
-    title: 'Innovators Talk Series #4',
-    date: 'Aug 20, 2026',
-    desc: 'A panel discussion with industry leaders on the future of AI in industrial automation.',
-    objectives: 'Bridge the gap between academia and the rapidly evolving industrial robotics sector.',
-    highlights: ['3 Guest Speakers from Top Tech Firms', 'Interactive Q&A Session', 'Networking Opportunities'],
-    img: '🎤',
+    title: 'BotTalk 3.0',
+    date: 'Past Event',
+    desc: 'A technical knowledge-sharing session connecting students with industry experts and researchers to discuss emerging trends in robotics and automation.',
+    objectives: 'Introduce students to modern robotics research and bridge academic concepts with industry practices.',
+    highlights: ['100+ participants', 'Expert guest speakers', 'Exposure to industrial applications'],
+    img: <CpuChipIcon className="w-24 h-24 text-primary-dark dark:text-primary-light drop-shadow-xl" />,
+  },
+  {
+    type: 'Past',
+    title: 'IEEE Open Week',
+    date: 'Past Event',
+    desc: 'A platform to introduce our student chapter and its initiatives to new undergraduates, showcasing ongoing projects and flagship events.',
+    objectives: 'Present the chapter’s vision, increase awareness of opportunities, and encourage new member engagement.',
+    highlights: ['Strong freshers participation', 'Substantial membership growth'],
+    img: <BuildingLibraryIcon className="w-24 h-24 text-primary-dark dark:text-primary-light drop-shadow-xl" />,
+  },
+  {
+    type: 'Past',
+    title: 'Annual General Meeting 2025',
+    date: 'Past Event',
+    desc: 'The AGM marked the transition of leadership and reviewed the chapter’s activities, achievements, and future roadmap.',
+    objectives: 'Present annual performance report, appoint new Executive Committee, outline plans for the upcoming term.',
+    highlights: ['Leadership transition', 'Strong member engagement'],
+    img: <BriefcaseIcon className="w-24 h-24 text-primary-dark dark:text-primary-light drop-shadow-xl" />,
   }
 ];
 
@@ -48,7 +58,7 @@ const EventsSection = () => {
               {/* Event Visual placeholder */}
               <div className="md:w-1/3 bg-gray-100 dark:bg-zinc-800 flex items-center justify-center min-h-[250px] relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary-dark/10 to-transparent"></div>
-                <span className="text-8xl group-hover:scale-110 transition-transform duration-500 drop-shadow-xl">{evt.img}</span>
+                <div className="group-hover:scale-110 transition-transform duration-500">{evt.img}</div>
                 <div className="absolute top-4 left-4 bg-white/80 dark:bg-black/80 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-primary-dark dark:text-primary-light border border-black/5 dark:border-white/10 uppercase tracking-wide">
                   {evt.type}
                 </div>

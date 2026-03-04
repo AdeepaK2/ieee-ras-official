@@ -3,29 +3,38 @@ import React from 'react';
 const projects = [
   {
     status: 'Ongoing',
-    title: 'Autonomous Quadruped Robot',
-    team: 'Team Alpha Robotics',
-    overview: 'Developing a highly agile, terrain-adaptive quadruped robot capable of autonomous navigation in unstructured environments. Focused on real-time SLAM and dynamic balance optimization.',
-    technologies: ['ROS 2', 'C++', 'Python', 'Computer Vision', 'Reinforcement Learning'],
-    outcomes: 'Currently in the prototype testing phase; achieved stable walking gaits on uneven terrain.',
+    title: 'MazeX Robotics Development Initiative',
+    team: 'Micromouse Team',
+    overview: 'Focuses on developing autonomous micromouse robots and building a standardized maze arena for competitions. Provides structured exposure to embedded systems and intelligent control.',
+    technologies: ['C/C++', 'Arduino / STM platforms', 'IR / Ultrasonic Sensors', 'PID control systems'],
+    outcomes: 'Functional micromouse prototypes, Custom maze infrastructure, Enhanced student expertise in autonomous robotics',
     github: '#'
   },
   {
     status: 'Completed',
-    title: 'Smart Agribot V2',
-    team: 'GreenTech UoM',
-    overview: 'An automated agricultural robot designed for precision pesticide spraying and crop health monitoring using multispectral imaging.',
-    technologies: ['Arduino Mega', 'Raspberry Pi', 'OpenCV', 'TensorFlow', 'IoT'],
-    outcomes: 'Successfully deployed in a pilot greenhouse; reduced pesticide usage by 30% while maintaining crop yield.',
+    title: 'STEM Outreach Initiative - ගම්මැද්දට IEEE අපි',
+    team: 'Community Outreach',
+    overview: 'Outreach program introducing school students to robotics and STEM education through interactive workshops.',
+    technologies: ['Arduino', 'Basic robotics modules', 'Interactive learning materials'],
+    outcomes: 'Reached 100+ school students, Hands-on robotics demonstrations conducted, Strong volunteer participation and positive community impact',
     github: '#'
   },
   {
     status: 'Research',
-    title: 'Swarm Intelligence for Search & Rescue',
-    team: 'SwarmLab UoM',
-    overview: 'Investigating decentralized coordination algorithms for a swarm of micro-drones to rapidly map and locate survivors in disaster zones.',
-    technologies: ['Swarm Robotics', 'C++', 'Gazebo Simulation', 'Path Planning'],
-    outcomes: 'Published a paper at the IEEE ICRA 2026 conference detailing a novel collision-avoidance technique.',
+    title: 'BotTalk Knowledge Series',
+    team: 'Research & Innovation',
+    overview: 'Series of sessions promoting research awareness and technical discussions in robotics and automation.',
+    technologies: ['Technical Discussions', 'Knowledge Sharing', 'Research Presentations'],
+    outcomes: 'Exposure to current research trends, Increased student participation in technical discussions, Encouraged research-oriented thinking among members',
+    github: '#'
+  },
+  {
+    status: 'Ongoing',
+    title: 'Micromouse Robot Builds',
+    team: 'Student Innovations',
+    overview: 'Student-designed autonomous robots built for maze-solving challenges under MazeX.',
+    technologies: ['Embedded microcontrollers', 'Path-planning algorithms', 'Sensor fusion techniques'],
+    outcomes: 'Multiple working prototypes, Practical experience in real-time control systems',
     github: '#'
   }
 ];
@@ -48,8 +57,8 @@ const ProjectsSection = () => {
               <div className="flex justify-between items-start mb-6">
                 <div>
                   <span className={`inline-block px-3 py-1 text-xs font-bold rounded-full uppercase tracking-wider mb-3 ${proj.status === 'Ongoing' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300' :
-                      proj.status === 'Completed' ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300' :
-                        'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300'
+                    proj.status === 'Completed' ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300' :
+                      'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300'
                     }`}>
                     {proj.status}
                   </span>
