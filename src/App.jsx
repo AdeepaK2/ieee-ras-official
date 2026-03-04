@@ -10,6 +10,7 @@ import ProjectsSection from './ProjectsSection';
 import GallerySection from './GallerySection';
 import JoinUsSection from './JoinUsSection';
 import ContactSection from './ContactSection';
+import Footer from './Footer';
 import './App.css';
 
 function ScrollToTop() {
@@ -42,11 +43,7 @@ function App() {
           <Route path="/contact" element={<ContactSection />} />
         </Routes>
       </main>
-      <footer className="glass m-8 p-8 text-center rounded-2xl">
-        <p className="text-gray-500 dark:text-gray-400 font-medium tracking-wide">
-          © 2026 IEEE RAS Student Chapter - UOM. All rights reserved.
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 }
