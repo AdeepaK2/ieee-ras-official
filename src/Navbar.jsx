@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { SunIcon, MoonIcon } from '@heroicons/react/24/outline'; // We will install heroicons
 
 export default function Navbar() {
@@ -20,7 +21,7 @@ export default function Navbar() {
   return (
     <nav className="glass sticky top-4 z-50 mx-4 px-6 py-4 flex justify-between items-center transition-all duration-300 hover:shadow-xl dark:bg-black/40 dark:border-white/10 dark:backdrop-blur-xl">
       <div className="flex items-center gap-3">
-        <a href="#home" className="h-16 w-auto flex items-center">
+        <Link to="/" className="h-16 w-auto flex items-center">
           {/* Light Theme Logo */}
           <img
             src="/RAS_SB_2 (1).PNG"
@@ -33,16 +34,16 @@ export default function Navbar() {
             alt="RAS Logo Dark"
             className="h-full w-auto object-contain hidden dark:block brightness-0 invert scale-[1.35] origin-left"
           />
-        </a>
+        </Link>
       </div>
 
       <div className="hidden md:flex gap-6 lg:gap-8 items-center text-gray-700 dark:text-gray-300">
-        <a href="#home" className="font-semibold hover:text-primary-dark dark:hover:text-primary-light transition-colors">Home</a>
-        <a href="#about" className="font-semibold hover:text-primary-dark dark:hover:text-primary-light transition-colors">About Us</a>
-        <a href="#committee" className="font-semibold hover:text-primary-dark dark:hover:text-primary-light transition-colors">Committee</a>
-        <a href="#events" className="font-semibold hover:text-primary-dark dark:hover:text-primary-light transition-colors">Events</a>
-        <a href="#projects" className="font-semibold hover:text-primary-dark dark:hover:text-primary-light transition-colors">Projects</a>
-        <a href="#gallery" className="font-semibold hover:text-primary-dark dark:hover:text-primary-light transition-colors">Gallery</a>
+        <Link to="/" className="font-semibold hover:text-primary-dark dark:hover:text-primary-light transition-colors">Home</Link>
+        <Link to="/about" className="font-semibold hover:text-primary-dark dark:hover:text-primary-light transition-colors">About Us</Link>
+        <Link to="/committee" className="font-semibold hover:text-primary-dark dark:hover:text-primary-light transition-colors">Committee</Link>
+        <Link to="/events" className="font-semibold hover:text-primary-dark dark:hover:text-primary-light transition-colors">Events</Link>
+        <Link to="/projects" className="font-semibold hover:text-primary-dark dark:hover:text-primary-light transition-colors">Projects</Link>
+        <Link to="/gallery" className="font-semibold hover:text-primary-dark dark:hover:text-primary-light transition-colors">Gallery</Link>
       </div>
 
       <div className="flex items-center gap-4">
@@ -61,9 +62,9 @@ export default function Navbar() {
             </svg>
           )}
         </button>
-        <a href="#contact" className="btn-primary">
+        <Link to="/contact" className="btn-primary">
           Contact Us
-        </a>
+        </Link>
       </div>
     </nav>
   );
