@@ -9,7 +9,7 @@ const ContactSection = () => {
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
             Get in <span className="text-gradient">Touch</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Have questions or want to collaborate? We'd love to hear from you.
           </p>
         </div>
@@ -36,7 +36,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 dark:text-white">Location</h4>
-                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed font-medium">
                       University of Moratuwa,<br />
                       Katubedda, Sri Lanka,<br />
                       10400

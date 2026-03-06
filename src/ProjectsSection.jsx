@@ -47,7 +47,7 @@ const ProjectsSection = () => {
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
             Our <span className="text-gradient">Projects</span> & Research
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400">Discover the innovative solutions developed by our members.</p>
+          <p className="text-xl text-gray-600 dark:text-gray-300">Discover the innovative solutions developed by our members.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -71,10 +71,10 @@ const ProjectsSection = () => {
               </div>
 
               <div className="flex-grow space-y-8">
-                <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed font-medium">{proj.overview}</p>
+                <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed font-medium">{proj.overview}</p>
 
                 <div>
-                  <h4 className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3">Technologies Used</h4>
+                  <h4 className="text-xs font-bold text-gray-500 dark:text-gray-300 uppercase tracking-widest mb-3">Technologies Used</h4>
                   <div className="flex flex-wrap gap-2">
                     {proj.technologies.map((tech, i) => (
                       <span key={i} className="text-xs font-semibold bg-white/50 dark:bg-black/30 border border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-300 px-3 py-1.5 rounded-full shadow-sm transition-colors hover:bg-gray-100 dark:hover:bg-gray-800">

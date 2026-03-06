@@ -52,7 +52,7 @@ export default function HeroSection() {
           </motion.h1>
 
           {/* Tagline / Intro */}
-          <motion.p variants={itemVariants} className="text-lg md:text-xl text-gray-600 dark:text-gray-400 font-medium mb-10 max-w-2xl mx-auto leading-relaxed">
+          <motion.p variants={itemVariants} className="text-lg md:text-xl text-gray-600 dark:text-gray-300 font-medium mb-10 max-w-2xl mx-auto leading-relaxed">
             We are part of a global professional community dedicated to shaping the future of robotics and automation.
           </motion.p>
 
@@ -85,17 +85,17 @@ export default function HeroSection() {
           {/* Surrounding curved data rings */}
           <g className="origin-[500px_400px] animate-spin-slow">
             <ellipse cx="500" cy="400" rx="400" ry="200" stroke="url(#glowLine)" strokeWidth="1" fill="none" className="opacity-40" />
-            <path d="M 100 400 A 400 200 0 0 1 900 400" stroke="#97012d" strokeWidth="2" strokeDasharray="10 30" fill="none" className="opacity-50 animate-draw-line" />
+            <path d="M 100 400 A 400 200 0 0 1 900 400" strokeWidth="2" strokeDasharray="10 30" fill="none" className="stroke-primary-light opacity-50 animate-draw-line" />
             <ellipse cx="500" cy="400" rx="300" ry="150" stroke="url(#glowLine)" strokeWidth="2" fill="none" className="opacity-60" />
-            <path d="M 200 400 A 300 150 0 0 0 800 400" stroke="#62126b" strokeWidth="3" strokeDasharray="5 15" fill="none" className="opacity-70 animate-draw-line" style={{ animationDirection: 'reverse' }} />
+            <path d="M 200 400 A 300 150 0 0 0 800 400" strokeWidth="3" strokeDasharray="5 15" fill="none" className="stroke-primary-dark opacity-70 animate-draw-line" style={{ animationDirection: 'reverse' }} />
           </g>
 
           {/* Geometric floating nodes */}
           <g className="origin-[500px_400px]">
             {/* Center Core */}
             <circle cx="500" cy="400" r="150" fill="url(#coreGlow)" className="animate-pulse-slow" />
-            <path d="M 450 400 L 500 320 L 550 400 Z" fill="rgba(151,1,45,0.15)" stroke="#97012d" strokeWidth="1" className="animate-float" />
-            <path d="M 450 400 L 500 480 L 550 400 Z" fill="rgba(98,18,107,0.15)" stroke="#62126b" strokeWidth="1" className="animate-float animation-delay-1000" />
+            <path d="M 450 400 L 500 320 L 550 400 Z" strokeWidth="1" className="fill-primary-light/15 stroke-primary-light animate-float" />
+            <path d="M 450 400 L 500 480 L 550 400 Z" strokeWidth="1" className="fill-primary-dark/15 stroke-primary-dark animate-float animation-delay-1000" />
 
             {/* Inner rotating hexagon ring */}
             <g className="origin-[500px_400px] animate-spin-slow-reverse">
@@ -110,9 +110,9 @@ export default function HeroSection() {
 
             {/* Floating particles */}
             <g className="animate-float">
-              <circle cx="300" cy="250" r="4" fill="#97012d" className="animate-pulse-slow" />
-              <circle cx="700" cy="250" r="4" fill="#62126b" className="animate-pulse-slow animation-delay-2000" />
-              <circle cx="500" cy="150" r="6" fill="#f8fafc" className="dark:fill-zinc-300 animate-pulse-slow animation-delay-4000" />
+              <circle cx="300" cy="250" r="4" className="fill-primary-light animate-pulse-slow" />
+              <circle cx="700" cy="250" r="4" className="fill-primary-dark animate-pulse-slow animation-delay-2000" />
+              <circle cx="500" cy="150" r="6" className="fill-slate-50 dark:fill-zinc-300 animate-pulse-slow animation-delay-4000" />
             </g>
           </g>
 

@@ -48,7 +48,7 @@ const EventsSection = () => {
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
             Our <span className="text-gradient">Events</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400">Join us in shaping the future of robotics.</p>
+          <p className="text-xl text-gray-600 dark:text-gray-300">Join us in shaping the future of robotics.</p>
         </div>
 
         <div className="space-y-16">
@@ -68,7 +68,7 @@ const EventsSection = () => {
               <div className="p-8 md:w-2/3 flex flex-col justify-center">
                 <div className="flex justify-between items-start mb-4">
                   <h3 className="text-3xl font-bold text-gray-900 dark:text-white capitalize leading-tight group-hover:text-primary-dark dark:group-hover:text-primary-light transition-colors">{evt.title}</h3>
-                  <span className="text-sm font-semibold text-gray-500 dark:text-gray-400 bg-gray-200 dark:bg-gray-800 px-3 py-1 rounded-full shrink-0 mt-1">{evt.date}</span>
+                  <span className="text-sm font-semibold text-gray-500 dark:text-gray-300 bg-gray-200 dark:bg-gray-800 px-3 py-1 rounded-full shrink-0 mt-1">{evt.date}</span>
                 </div>
 
                 <p className="text-gray-700 dark:text-gray-300 text-lg mb-6 leading-relaxed">
@@ -78,7 +78,7 @@ const EventsSection = () => {
                 <div className="space-y-4">
                   <div>
                     <h4 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-2">Objectives</h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{evt.objectives}</p>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{evt.objectives}</p>
                   </div>
                   <div>
                     <h4 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-2">Highlights</h4>

@@ -16,7 +16,7 @@ const GallerySection = () => {
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
             Our <span className="text-gradient">Gallery</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400">Glimpses of our vibrant community in action.</p>
+          <p className="text-xl text-gray-600 dark:text-gray-300">Glimpses of our vibrant community in action.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -26,7 +26,7 @@ const GallerySection = () => {
               <div className={`absolute inset-0 bg-gradient-to-br ${cat.imgClass} group-hover:scale-110 transition-transform duration-700 ease-out`}></div>
 
               {/* Placeholder text (until real images are added) */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-50 font-medium text-gray-500 dark:text-gray-400 mix-blend-overlay">
+              <div className="absolute inset-0 flex items-center justify-center opacity-50 font-medium text-gray-500 dark:text-gray-300 mix-blend-overlay">
                 [Image / {cat.name}]
               </div>
 

@@ -9,7 +9,7 @@ const JoinUsSection = () => {
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
             Join <span className="text-gradient">IEEE RAS</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Become a part of a global community dedicated to robotics and automation.
           </p>
         </div>
@@ -38,7 +38,7 @@ const JoinUsSection = () => {
                   </div>
                   <div>
                     <h5 className="font-bold text-gray-900 dark:text-white">{benefit.title}</h5>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{benefit.desc}</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">{benefit.desc}</p>
                   </div>
                 </div>
               ))}
@@ -59,7 +59,7 @@ const JoinUsSection = () => {
               <a href="#" className="block w-full btn-primary text-lg shadow-primary-dark/30 shadow-lg">
                 Membership Form Link -&gt;
               </a>
-              <p className="text-xs text-gray-500 dark:text-gray-400">
+              <p className="text-xs text-gray-500 dark:text-gray-300">
                 *Open exclusively to University of Moratuwa undergraduates.
               </p>
             </div>

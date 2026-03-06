@@ -9,12 +9,12 @@ export default {
     extend: {
       colors: {
         primary: {
-          light: '#97012d', // Reddish
-          dark: '#62126b',  // Purplish
-          DEFAULT: '#62126b',
+          light: 'rgb(var(--primary-light) / <alpha-value>)',
+          dark: 'rgb(var(--primary-dark) / <alpha-value>)',
+          DEFAULT: 'rgb(var(--primary-dark) / <alpha-value>)',
         },
         secondary: {
-          DEFAULT: '#97012d',
+          DEFAULT: 'rgb(var(--primary-light) / <alpha-value>)',
         }
       },
       fontFamily: {

@@ -15,7 +15,7 @@ export default function Footer() {
               IEEE <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary-light">RAS</span>
             </span>
           </Link>
-          <p className="text-sm text-gray-600 dark:text-gray-400 font-medium leading-relaxed">
+          <p className="text-sm text-gray-600 dark:text-gray-300 font-medium leading-relaxed">
             University of Moratuwa Student Chapter. Advancing Robotics & Automation Through Innovation and Collaboration.
           </p>
         </div>
@@ -27,10 +27,10 @@ export default function Footer() {
             <span className="absolute -bottom-1 left-0 w-1/2 h-0.5 bg-gradient-to-r from-primary-dark to-primary-light rounded-full"></span>
           </h4>
           <ul className="space-y-2 text-sm font-semibold">
-            <li><Link to="/about" className="text-gray-600 dark:text-gray-400 hover:text-primary-dark dark:hover:text-primary-light transition-colors">About Us</Link></li>
-            <li><Link to="/committee" className="text-gray-600 dark:text-gray-400 hover:text-primary-dark dark:hover:text-primary-light transition-colors">Committee</Link></li>
-            <li><Link to="/events" className="text-gray-600 dark:text-gray-400 hover:text-primary-dark dark:hover:text-primary-light transition-colors">Events</Link></li>
-            <li><Link to="/projects" className="text-gray-600 dark:text-gray-400 hover:text-primary-dark dark:hover:text-primary-light transition-colors">Projects</Link></li>
+            <li><Link to="/about" className="text-gray-600 dark:text-gray-300 hover:text-primary-dark dark:hover:text-primary-light transition-colors">About Us</Link></li>
+            <li><Link to="/committee" className="text-gray-600 dark:text-gray-300 hover:text-primary-dark dark:hover:text-primary-light transition-colors">Committee</Link></li>
+            <li><Link to="/events" className="text-gray-600 dark:text-gray-300 hover:text-primary-dark dark:hover:text-primary-light transition-colors">Events</Link></li>
+            <li><Link to="/projects" className="text-gray-600 dark:text-gray-300 hover:text-primary-dark dark:hover:text-primary-light transition-colors">Projects</Link></li>
           </ul>
         </div>
 
@@ -41,10 +41,10 @@ export default function Footer() {
             <span className="absolute -bottom-1 left-0 w-1/2 h-0.5 bg-gradient-to-r from-primary-dark to-primary-light rounded-full"></span>
           </h4>
           <ul className="space-y-2 text-sm font-semibold">
-            <li><Link to="/gallery" className="text-gray-600 dark:text-gray-400 hover:text-primary-dark dark:hover:text-primary-light transition-colors">Gallery</Link></li>
-            <li><Link to="/join" className="text-gray-600 dark:text-gray-400 hover:text-primary-dark dark:hover:text-primary-light transition-colors">Membership</Link></li>
-            <li><Link to="/contact" className="text-gray-600 dark:text-gray-400 hover:text-primary-dark dark:hover:text-primary-light transition-colors">Contact Us</Link></li>
-            <li><a href="https://www.ieee-ras.org/" target="_blank" rel="noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-primary-dark dark:hover:text-primary-light transition-colors">IEEE RAS Global</a></li>
+            <li><Link to="/gallery" className="text-gray-600 dark:text-gray-300 hover:text-primary-dark dark:hover:text-primary-light transition-colors">Gallery</Link></li>
+            <li><Link to="/join" className="text-gray-600 dark:text-gray-300 hover:text-primary-dark dark:hover:text-primary-light transition-colors">Membership</Link></li>
+            <li><Link to="/contact" className="text-gray-600 dark:text-gray-300 hover:text-primary-dark dark:hover:text-primary-light transition-colors">Contact Us</Link></li>
+            <li><a href="https://www.ieee-ras.org/" target="_blank" rel="noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-primary-dark dark:hover:text-primary-light transition-colors">IEEE RAS Global</a></li>
           </ul>
         </div>
 
@@ -54,7 +54,7 @@ export default function Footer() {
             Get in Touch
             <span className="absolute -bottom-1 left-0 w-1/2 h-0.5 bg-gradient-to-r from-primary-dark to-primary-light rounded-full"></span>
           </h4>
-          <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
+          <p className="text-sm text-gray-600 dark:text-gray-300 font-medium">
             Department of Electronic and Telecommunication Engineering, <br />
             University of Moratuwa, Sri Lanka.
           </p>
@@ -65,7 +65,7 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-200 dark:border-white/10 relative z-10 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">
+        <p className="text-sm text-gray-500 dark:text-gray-300 font-medium">
           © {new Date().getFullYear()} IEEE RAS Student Chapter - UOM. All rights reserved.
         </p>
 

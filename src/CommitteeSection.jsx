@@ -44,7 +44,7 @@ const CommitteeSection = () => {
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
             Executive <span className="text-gradient">Committee</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400">Current Term 25/26</p>
+          <p className="text-xl text-gray-600 dark:text-gray-300">Current Term 25/26</p>
         </div>
 
         {/* Faculty Advisor */}
@@ -63,7 +63,7 @@ const CommitteeSection = () => {
             </div>
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">{facultyAdvisor.name}</h3>
             <p className="text-primary-dark dark:text-primary-light font-medium mb-3">{facultyAdvisor.position}</p>
-            <p className="text-sm text-gray-600 dark:text-gray-400">{facultyAdvisor.description}</p>
+            <p className="text-sm text-gray-600 dark:text-gray-300">{facultyAdvisor.description}</p>
           </div>
         </div>
 

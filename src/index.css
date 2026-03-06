@@ -5,6 +5,22 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* Base theme colors - mapped to RGB variables for Tailwind opacity support */
+    /* Light: #97012d (151, 1, 45) */
+    --primary-light: 151 1 45;
+    /* Dark: #62126b (98, 18, 107) */
+    --primary-dark: 98 18 107;
+  }
+
+  .dark {
+    /* Brighter, highly legible variants for dark mode */
+    /* Vibrant Pink/Red */
+    --primary-light: 239 68 116;
+    /* Fuchsia/Purple */
+    --primary-dark: 217 70 239;
+  }
+
   body {
     @apply antialiased text-gray-900 bg-white dark:bg-black dark:text-white transition-colors duration-300;
   }
@@ -110,10 +126,21 @@
 }
 
 @keyframes blob {
-  0% { transform: translate(0px, 0px) scale(1); }
-  33% { transform: translate(30px, -50px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.9); }
-  100% { transform: translate(0px, 0px) scale(1); }
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
 }
 
 .animate-blob {

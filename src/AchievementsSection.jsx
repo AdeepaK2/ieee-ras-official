@@ -35,7 +35,7 @@ const AchievementsSection = () => {
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
             Our <span className="text-gradient">Achievements</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400">Celebrating excellence and dedication within our chapter.</p>
+          <p className="text-xl text-gray-600 dark:text-gray-300">Celebrating excellence and dedication within our chapter.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -47,7 +47,7 @@ const AchievementsSection = () => {
               <div>
                 <span className="text-xs font-bold text-primary-dark dark:text-primary-light uppercase tracking-wider mb-2 block">{achieve.category}</span>
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">{achieve.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
                   {achieve.desc}
                 </p>
               </div>
