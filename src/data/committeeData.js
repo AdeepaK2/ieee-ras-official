@@ -1,4 +1,6 @@
 
+import RohanMunasinghe from '../assets/memberImages/Rohan Munasinghe.jpg';
+
 //Executive Committee
 import SahasEashan from '../assets/memberImages/Sahas Eashan.jpg';
 import BiniduTishan from '../assets/memberImages/Binidu Tishan.jpeg';
@@ -64,10 +66,11 @@ import ThisangiDewmini from '../assets/memberImages/Thisangi Dewmini.jpg';
 import ThiseniAbeykoon from '../assets/memberImages/Thiseni Abeykoon.jpeg';
 
 export const facultyAdvisor = {
-	name: 'Dr. Simal Rathnayake',
+	name: 'Prof. Rohan Munasinghe',
 	position: 'Faculty Advisor',
 	description:
 		'Guiding the chapter with academic excellence and industry insights.',
+	image: RohanMunasinghe,
 };
 
 export const execCommittee = [
