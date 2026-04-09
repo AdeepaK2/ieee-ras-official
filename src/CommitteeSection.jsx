@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { AcademicCapIcon, UserIcon } from '@heroicons/react/24/outline';
 import {
   facultyAdvisor,
@@ -6,36 +6,121 @@ import {
   subCommittees,
 } from './data/committeeData';
 
-const CommitteeCard = ({ name, position, image, photo, large = false }) => (
-  <div
-    className={`glass bg-white/60 dark:bg-black/40 backdrop-blur-xl group hover:-translate-y-2 transition-all duration-300 hover:shadow-xl text-center w-full ${
-      large ? 'max-w-sm p-8' : 'max-w-xs p-6'
-    }`}
-  >
+/* ─── Mouse-tracking spotlight card ─────────────────────────────────── */
+const CommitteeCard = ({ name, position, image, photo, large = false }) => {
+  const cardRef = useRef(null);
+
+  const handleMouseMove = (e) => {
+    const card = cardRef.current;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  };
+
+  const handleMouseLeave = () => {
+    const card = cardRef.current;
+    if (!card) return;
+    // Reset to centre so glow fades gracefully
+    card.style.setProperty('--mouse-x', '50%');
+    card.style.setProperty('--mouse-y', '50%');
+  };
+
+  return (
     <div
-      className={`mx-auto bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-700 rounded-full shadow-sm overflow-hidden flex items-center justify-center text-gray-500 mb-4 ${
-        large ? 'w-24 h-24' : 'w-20 h-20'
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className={`committee-card glass bg-white/60 dark:bg-black/40 backdrop-blur-xl text-center w-full ${
+        large ? 'max-w-sm p-8' : 'max-w-xs p-6'
       }`}
     >
-      {image || photo ? (
-        <img
-          src={image || photo}
-          alt={name}
-          className="w-full h-full object-cover"
-        />
-      ) : (
-        <UserIcon className={large ? 'w-12 h-12' : 'w-10 h-10'} />
-      )}
-    </div>
-    <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary-dark group-hover:to-primary-light transition-all">
-      {name}
-    </h3>
-    <p className="text-sm font-semibold text-primary-dark/80 dark:text-primary-light/80 uppercase tracking-wider">
-      {position}
-    </p>
-  </div>
-);
+      {/* Spotlight layer */}
+      <div className="committee-card__spotlight" />
 
+      {/* Avatar with glow ring */}
+      <div
+        className={`committee-avatar mx-auto rounded-full shadow-sm overflow-hidden flex items-center justify-center text-gray-500 mb-4 ${
+          large ? 'w-24 h-24' : 'w-20 h-20'
+        }`}
+      >
+        {image || photo ? (
+          <img
+            src={image || photo}
+            alt={name}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <UserIcon className={large ? 'w-12 h-12' : 'w-10 h-10'} />
+        )}
+      </div>
+
+      {/* Name with gradient on hover */}
+      <h3 className="committee-card__name text-xl font-bold text-gray-900 dark:text-white transition-all duration-300">
+        {name}
+      </h3>
+
+      <p className="text-sm font-semibold text-primary-dark/80 dark:text-primary-light/80 uppercase tracking-wider mt-1">
+        {position}
+      </p>
+    </div>
+  );
+};
+
+/* ─── Faculty Advisor card (larger, special treatment) ───────────────── */
+const FacultyCard = ({ advisor }) => {
+  const cardRef = useRef(null);
+
+  const handleMouseMove = (e) => {
+    const card = cardRef.current;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+    card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+  };
+
+  const handleMouseLeave = () => {
+    const card = cardRef.current;
+    if (!card) return;
+    card.style.setProperty('--mouse-x', '50%');
+    card.style.setProperty('--mouse-y', '50%');
+  };
+
+  return (
+    <div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="committee-card glass p-8 bg-white/60 dark:bg-black/40 backdrop-blur-xl text-center max-w-sm w-full"
+    >
+      <div className="committee-card__spotlight" />
+      <div className="committee-avatar w-24 h-24 mx-auto rounded-full mb-4 shadow-inner overflow-hidden flex items-center justify-center">
+        {advisor.image || advisor.photo ? (
+          <img
+            src={advisor.image || advisor.photo}
+            alt={advisor.name}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <AcademicCapIcon className="w-12 h-12 text-gray-500" />
+        )}
+      </div>
+      <h3 className="committee-card__name text-2xl font-bold text-gray-900 dark:text-white mb-1">
+        {advisor.name}
+      </h3>
+      <p className="text-primary-dark dark:text-primary-light font-medium mb-3">
+        {advisor.position}
+      </p>
+      <p className="text-sm text-gray-600 dark:text-gray-300">
+        {advisor.description}
+      </p>
+    </div>
+  );
+};
+
+/* ─── Section ────────────────────────────────────────────────────────── */
 const CommitteeSection = () => {
   return (
     <section id="committee" className="py-24 px-6 relative z-10 bg-gray-50/50 dark:bg-zinc-900/30">
@@ -49,22 +134,7 @@ const CommitteeSection = () => {
 
         {/* Faculty Advisor */}
         <div className="flex justify-center mb-16">
-          <div className="glass p-8 bg-white/60 dark:bg-black/40 backdrop-blur-xl text-center max-w-sm w-full">
-            <div className="w-24 h-24 mx-auto bg-gray-300 dark:bg-gray-700 rounded-full mb-4 shadow-inner overflow-hidden flex items-center justify-center">
-              {facultyAdvisor.image || facultyAdvisor.photo ? (
-                <img
-                  src={facultyAdvisor.image || facultyAdvisor.photo}
-                  alt={facultyAdvisor.name}
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <AcademicCapIcon className="w-12 h-12 text-gray-500" />
-              )}
-            </div>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">{facultyAdvisor.name}</h3>
-            <p className="text-primary-dark dark:text-primary-light font-medium mb-3">{facultyAdvisor.position}</p>
-            <p className="text-sm text-gray-600 dark:text-gray-300">{facultyAdvisor.description}</p>
-          </div>
+          <FacultyCard advisor={facultyAdvisor} />
         </div>
 
         {/* Exec Committee Grid */}
@@ -124,7 +194,6 @@ const CommitteeSection = () => {
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );

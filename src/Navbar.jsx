@@ -54,13 +54,13 @@ export default function Navbar() {
         <Link to="/" className="h-16 w-auto flex items-center">
           {/* Light Theme Logo */}
           <img
-            src="/RAS_SB_2 (1).PNG"
+            src="/RAS_logo_light.png"
             alt="RAS Logo Light"
             className="h-full w-auto object-contain dark:hidden scale-[1.35] origin-left"
           />
           {/* Dark Theme Logo -> Use brightness-0 invert to make it pure white on dark mode */}
           <img
-            src="/RAS_SB_1.PNG"
+            src="/RAS_logo_dark.png"
             alt="RAS Logo Dark"
             className="h-full w-auto object-contain hidden dark:block brightness-0 invert scale-[1.35] origin-left"
           />
