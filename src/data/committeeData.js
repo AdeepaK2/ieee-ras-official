@@ -1,5 +1,6 @@
 
 import RohanMunasinghe from '../assets/memberImages/Rohan Munasinghe.jpg';
+import BuddhikaJayasekara from '../assets/memberImages/Buddhika Jayasekara.jpg';
 
 //Executive Committee
 import SahasEashan from '../assets/memberImages/Sahas Eashan.jpg';
@@ -65,13 +66,22 @@ import ChalinVanderslott from '../assets/memberImages/Chalin Vanderslott.jpg';
 import ThisangiDewmini from '../assets/memberImages/Thisangi Dewmini.jpg';
 import ThiseniAbeykoon from '../assets/memberImages/Thiseni Abeykoon.jpeg';
 
-export const facultyAdvisor = {
-	name: 'Prof. Rohan Munasinghe',
-	position: 'Faculty Advisor',
-	description:
-		'Guiding the chapter with academic excellence and industry insights.',
-	image: RohanMunasinghe,
-};
+export const facultyAdvisors = [
+	{
+		name: 'Prof. Rohan Munasinghe',
+		position: 'Faculty Advisor',
+		description:
+			'Guiding the chapter with academic excellence and industry insights.',
+		image: RohanMunasinghe,
+	},
+	{
+		name: 'Prof. Buddhika Jayasekara',
+		position: 'Counselor – IEEE Student Branch University of Moratuwa',
+		description:
+			'Providing guidance and wisdom to foster innovation and leadership.',
+		image: BuddhikaJayasekara,
+	},
+];
 
 export const execCommittee = [
 	{ name: 'Sahas Eashan', position: 'President', image: SahasEashan },

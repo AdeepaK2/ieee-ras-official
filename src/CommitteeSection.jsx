@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { AcademicCapIcon, UserIcon } from '@heroicons/react/24/outline';
 import {
-  facultyAdvisor,
+  facultyAdvisors,
   execCommittee,
   subCommittees,
 } from './data/committeeData';
@@ -93,10 +93,10 @@ const FacultyCard = ({ advisor }) => {
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="committee-card glass p-8 bg-white/60 dark:bg-black/40 backdrop-blur-xl text-center max-w-sm w-full"
+      className="committee-card glass p-8 bg-white/60 dark:bg-black/40 backdrop-blur-xl text-center max-w-sm w-full flex flex-col"
     >
       <div className="committee-card__spotlight" />
-      <div className="committee-avatar w-24 h-24 mx-auto rounded-full mb-4 shadow-inner overflow-hidden flex items-center justify-center">
+      <div className="committee-avatar w-24 h-24 mx-auto rounded-full mb-4 shadow-inner overflow-hidden flex items-center justify-center shrink-0">
         {advisor.image || advisor.photo ? (
           <img
             src={advisor.image || advisor.photo}
@@ -107,15 +107,17 @@ const FacultyCard = ({ advisor }) => {
           <AcademicCapIcon className="w-12 h-12 text-gray-500" />
         )}
       </div>
-      <h3 className="committee-card__name text-2xl font-bold text-gray-900 dark:text-white mb-1">
-        {advisor.name}
-      </h3>
-      <p className="text-primary-dark dark:text-primary-light font-medium mb-3">
-        {advisor.position}
-      </p>
-      <p className="text-sm text-gray-600 dark:text-gray-300">
-        {advisor.description}
-      </p>
+      <div className="flex flex-col flex-grow">
+        <h3 className="committee-card__name text-2xl font-bold text-gray-900 dark:text-white mb-2">
+          {advisor.name}
+        </h3>
+        <p className="text-sm font-bold text-primary-dark/80 dark:text-primary-light/80 uppercase tracking-wider mb-4 min-h-[3rem] flex items-center justify-center">
+          {advisor.position}
+        </p>
+        <p className="text-sm text-gray-600 dark:text-gray-300">
+          {advisor.description}
+        </p>
+      </div>
     </div>
   );
 };
@@ -132,9 +134,11 @@ const CommitteeSection = () => {
           <p className="text-xl text-gray-600 dark:text-gray-300">Current Term 25/26</p>
         </div>
 
-        {/* Faculty Advisor */}
-        <div className="flex justify-center mb-16">
-          <FacultyCard advisor={facultyAdvisor} />
+        {/* Faculty Advisors & Counselors */}
+        <div className="flex flex-wrap justify-center gap-8 mb-16">
+          {facultyAdvisors.map((advisor, idx) => (
+            <FacultyCard key={idx} advisor={advisor} />
+          ))}
         </div>
 
         {/* Exec Committee Grid */}
