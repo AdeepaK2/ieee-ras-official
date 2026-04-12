@@ -100,8 +100,8 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link to="/" className="h-12 w-auto flex items-center shrink-0">
-          <img src="/RAS_logo_light.png" alt="RAS Logo" className="h-full w-auto object-contain dark:hidden scale-[1.35] origin-left" />
-          <img src="/RAS_logo_dark.png"  alt="RAS Logo" className="h-full w-auto object-contain hidden dark:block brightness-0 invert scale-[1.35] origin-left" />
+          <img src="/RAS_logo_light.png" alt="RAS Logo" className="h-full w-auto object-contain dark:hidden scale-[1.35] origin-left" loading="eager" fetchPriority="high" decoding="async" />
+          <img src="/RAS_logo_dark.png"  alt="RAS Logo" className="h-full w-auto object-contain hidden dark:block brightness-0 invert scale-[1.35] origin-left" loading="eager" fetchPriority="high" decoding="async" />
         </Link>
 
         {/* Desktop nav links */}

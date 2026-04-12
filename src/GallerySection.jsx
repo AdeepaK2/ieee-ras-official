@@ -158,8 +158,8 @@ const GallerySection = () => {
                   src={resolveGalleryImageUrl(moment.image)}
                   alt={`${moment.title} - ${moment.category}`}
                   className={`absolute inset-0 h-full w-full object-cover object-center transition-all duration-700 group-hover:scale-110 ${loadedImages[idx] ? 'opacity-100 blur-0' : 'opacity-0 blur-sm'}`}
-                  loading={idx < 3 ? 'eager' : 'lazy'}
-                  fetchPriority={idx < 3 ? 'high' : 'auto'}
+                  loading="lazy"
+                  fetchPriority="auto"
                   decoding="async"
                   onLoad={() => handleImageLoaded(idx)}
                   onError={() => handleImageLoaded(idx)}
