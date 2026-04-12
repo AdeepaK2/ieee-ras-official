@@ -1,5 +1,18 @@
 import React, { useState } from 'react';
 
+const galleryImageModules = import.meta.glob('./assets/gallery/**/*.{jpg,jpeg,png,webp}', {
+  eager: true,
+  import: 'default',
+});
+
+const galleryImageUrlsByName = Object.entries(galleryImageModules).reduce((acc, [modulePath, moduleUrl]) => {
+  const fileName = modulePath.split('/').pop();
+  if (fileName) {
+    acc[fileName] = moduleUrl;
+  }
+  return acc;
+}, {});
+
 const galleryMoments = [
   {
     title: 'Robotics Day',
@@ -96,6 +109,11 @@ const galleryMoments = [
 const GallerySection = () => {
   const [loadedImages, setLoadedImages] = useState({});
 
+  const resolveGalleryImageUrl = (legacyPath) => {
+    const fileName = legacyPath.split('/').pop();
+    return fileName ? galleryImageUrlsByName[fileName] || '' : '';
+  };
+
   const handleImageLoaded = (idx) => {
     setLoadedImages((prev) => {
       if (prev[idx]) return prev;
@@ -137,7 +155,7 @@ const GallerySection = () => {
                 )}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-dark/5 via-transparent to-primary-light/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <img
-                  src={moment.image}
+                  src={resolveGalleryImageUrl(moment.image)}
                   alt={`${moment.title} - ${moment.category}`}
                   className={`absolute inset-0 h-full w-full object-cover object-center transition-all duration-700 group-hover:scale-110 ${loadedImages[idx] ? 'opacity-100 blur-0' : 'opacity-0 blur-sm'}`}
                   loading={idx < 3 ? 'eager' : 'lazy'}
