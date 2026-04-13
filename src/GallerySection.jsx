@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import galleryData from './data/galleryData.json';
 
 const galleryImageModules = import.meta.glob('./assets/gallery/**/*.{jpg,jpeg,png,webp}', {
   eager: true,
@@ -13,106 +14,22 @@ const galleryImageUrlsByName = Object.entries(galleryImageModules).reduce((acc, 
   return acc;
 }, {});
 
-const galleryMoments = [
-  {
-    title: 'Robotics Day',
-    category: 'Flagship gathering',
-    image: '/gallery/robotics-day/RoboticsDay1.jpg',
-  },
-  {
-    title: 'Robotics Day',
-    category: 'Panel discussion',
-    image: '/gallery/robotics-day/RoboticsDay4.jpg',
-  },
-  {
-    title: 'Bot Talk 2.0',
-    category: 'Interactive session',
-    image: '/gallery/bot-talk/BotTalk1.jpg',
-  },
-  {
-    title: 'IEEE Robotics Day',
-    category: 'Audience engagement',
-    image: '/gallery/robotics-day/RoboticsDay2.jpg',
-  },
-  {
-    title: 'Bot Talk 2.0',
-    category: 'Hands-on moment',
-    image: '/gallery/bot-talk/BotTalk5.jpg',
-  },
-  {
-    title: 'IEEE Robotics Day',
-    category: 'Live Q&A',
-    image: '/gallery/robotics-day/RoboticsDay5.jpg',
-  },
-  {
-    title: 'Gammeddata IEEE API',
-    category: 'Community workshop',
-    image: '/gallery/gammeddata/GammeddataIEEEApi1.jpeg',
-  },
-  {
-    title: 'IEEE Robotics Day',
-    category: 'Closing highlight',
-    image: '/gallery/robotics-day/RoboticsDay3.jpg',
-  },
-  {
-    title: 'Bot Talk 2.0',
-    category: 'Audience focus',
-    image: '/gallery/bot-talk/BotTalk2.jpg',
-  },
-  {
-    title: 'Bot Talk 2.0',
-    category: 'Live demo',
-    image: '/gallery/bot-talk/BotTalk3.jpg',
-  },
-  {
-    title: 'Bot Talk 2.0',
-    category: 'Technical session',
-    image: '/gallery/bot-talk/BotTalk4.jpg',
-  },
-  {
-    title: 'Bot Talk 2.0',
-    category: 'Workshop moment',
-    image: '/gallery/bot-talk/BotTalk6.jpg',
-  },
-  {
-    title: 'Gammeddata IEEE API',
-    category: 'Workshop series',
-    image: '/gallery/gammeddata/GammeddataIEEEApi2.jpeg',
-  },
-  {
-    title: 'Gammeddata IEEE API',
-    category: 'Audience session',
-    image: '/gallery/gammeddata/GammeddataIEEEApi3.jpeg',
-  },
-  {
-    title: 'Robotics Day',
-    category: 'Event highlight',
-    image: '/gallery/robotics-day/RoboticsDay6.jpg',
-  },
-  {
-    title: 'Robotics Day',
-    category: 'Community moment',
-    image: '/gallery/robotics-day/RoboticsDay7.jpg',
-  },
-  {
-    title: 'Robotics Day',
-    category: 'Stage capture',
-    image: '/gallery/robotics-day/RoboticsDay8.jpg',
-  },
-  {
-    title: 'Robotics Day',
-    category: 'Closing frame',
-    image: '/gallery/robotics-day/RoboticsDay9.jpg',
-  },
-];
+const resolveImageUrl = (fileName) => {
+  return fileName ? galleryImageUrlsByName[fileName] || '' : '';
+};
 
 const GallerySection = () => {
   const [loadedImages, setLoadedImages] = useState({});
 
-  const resolveGalleryImageUrl = (legacyPath) => {
-    const fileName = legacyPath.split('/').pop();
-    return fileName ? galleryImageUrlsByName[fileName] || '' : '';
-  };
+  const eventGalleries = useMemo(() => {
+    return galleryData.events.map((event) => ({
+      ...event,
+      images: event.images.map((img, idx) => ({
+        ...img,
+        globalIdx: `${event.id}-${idx}`,
+      })),
+    }));
+  }, []);
 
   const handleImageLoaded = (idx) => {
     setLoadedImages((prev) => {
@@ -142,43 +59,75 @@ const GallerySection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
-          {galleryMoments.map((moment, idx) => (
+        <div className="space-y-20 relative z-10">
+          {eventGalleries.map((event) => (
+            <div key={event.id} className="space-y-8">
+              {/* Event Header */}
+              <div className="text-center">
+                <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-3">
+                  {event.title}
+                </h3>
+                <p className="text-lg text-gray-600 dark:text-gray-300">
+                  {event.description}
+                </p>
+              </div>
+
+              {/* Event Images Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {event.images.map((image) => (
             <article
-              key={`${moment.title}-${idx}`}
+              key={image.globalIdx}
               className="group relative overflow-hidden rounded-3xl glass transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary-dark/10 border border-white/10 bg-white/60 dark:bg-black/30 backdrop-blur-xl"
-              style={{ animationDelay: `${idx * 90}ms` }}
+              style={{ animationDelay: `${0}ms` }}
             >
               <div className="relative h-72 sm:h-80 lg:h-80">
-                {!loadedImages[idx] && (
+                {!loadedImages[image.globalIdx] && (
                   <div className="absolute inset-0 z-10 bg-gradient-to-br from-gray-200/70 via-gray-100/80 to-gray-200/70 dark:from-zinc-800/70 dark:via-zinc-700/80 dark:to-zinc-800/70 animate-pulse" />
                 )}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-dark/5 via-transparent to-primary-light/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <img
-                  src={resolveGalleryImageUrl(moment.image)}
-                  alt={`${moment.title} - ${moment.category}`}
-                  className={`absolute inset-0 h-full w-full object-cover object-center transition-all duration-700 group-hover:scale-110 ${loadedImages[idx] ? 'opacity-100 blur-0' : 'opacity-0 blur-sm'}`}
+                  src={resolveImageUrl(image.name)}
+                  alt={`${image.title} - ${image.category}`}
+                  className={`absolute inset-0 h-full w-full object-cover object-center transition-all duration-700 group-hover:scale-110 ${loadedImages[image.globalIdx] ? 'opacity-100 blur-0' : 'opacity-0 blur-sm'}`}
                   loading="lazy"
                   fetchPriority="auto"
                   decoding="async"
-                  onLoad={() => handleImageLoaded(idx)}
-                  onError={() => handleImageLoaded(idx)}
+                  onLoad={() => handleImageLoaded(image.globalIdx)}
+                  onError={() => handleImageLoaded(image.globalIdx)}
                 />
-                <div className={`absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent transition-opacity duration-500 ${loadedImages[idx] ? 'opacity-90' : 'opacity-75'}`} />
+                <div className={`absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent transition-opacity duration-500 ${loadedImages[image.globalIdx] ? 'opacity-90' : 'opacity-75'}`} />
                 <div className="absolute inset-0 border border-white/10 rounded-3xl pointer-events-none" />
 
                 <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 lg:p-7 flex items-end">
                   <div className="w-full transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                     <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-semibold tracking-[0.22em] uppercase bg-white/10 text-white border border-white/15 backdrop-blur-md">
-                      {moment.category}
+                      {image.category}
                     </span>
                     <h3 className="mt-3 text-2xl font-bold text-white tracking-tight">
-                      {moment.title}
+                      {image.title}
                     </h3>
                   </div>
                 </div>
               </div>
             </article>
+                ))}
+              </div>
+
+              {/* View More Button */}
+              <div className="flex justify-center pt-4">
+                <a
+                  href={event.facebookUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-8 py-3 rounded-full font-semibold text-gray-900 dark:text-white bg-white/70 dark:bg-white/10 border border-black/10 dark:border-white/10 hover:bg-white/90 dark:hover:bg-white/15 backdrop-blur-md transition-all duration-300 shadow-lg shadow-black/5"
+                >
+                  View More on Facebook
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
           ))}
         </div>
 
