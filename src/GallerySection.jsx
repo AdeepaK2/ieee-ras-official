@@ -100,10 +100,7 @@ const GallerySection = () => {
 
                 <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 lg:p-7 flex items-end">
                   <div className="w-full transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-semibold tracking-[0.22em] uppercase bg-white/10 text-white border border-white/15 backdrop-blur-md">
-                      {image.category}
-                    </span>
-                    <h3 className="mt-3 text-2xl font-bold text-white tracking-tight">
+                    <h3 className="text-2xl font-bold text-white tracking-tight">
                       {image.title}
                     </h3>
                   </div>
