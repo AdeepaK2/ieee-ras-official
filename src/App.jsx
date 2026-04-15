@@ -6,7 +6,6 @@ import FeaturesSection from './FeaturesSection';
 import AboutSection from './AboutSection';
 import CommitteeSection from './CommitteeSection';
 import EventsSection from './EventsSection';
-import ProjectsSection from './ProjectsSection';
 import GallerySection from './GallerySection';
 import JoinUsSection from './JoinUsSection';
 import ContactSection from './ContactSection';
@@ -37,7 +36,6 @@ function App() {
           <Route path="/about" element={<AboutSection />} />
           <Route path="/committee" element={<CommitteeSection />} />
           <Route path="/events" element={<EventsSection />} />
-          <Route path="/projects" element={<ProjectsSection />} />
           <Route path="/gallery" element={<GallerySection />} />
           <Route path="/join" element={<JoinUsSection />} />
           <Route path="/contact" element={<ContactSection />} />

@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const NAV_LINKS = [
   { to: '/',          label: 'Home' },
   { to: '/about',     label: 'About Us' },
   { to: '/committee', label: 'Committee' },
   { to: '/events',    label: 'Events' },
-  { to: '/projects',  label: 'Projects' },
   { to: '/gallery',   label: 'Gallery' },
 ];
 
@@ -45,32 +44,27 @@ const HamburgerIcon = ({ open }) => (
 );
 
 export default function Navbar() {
-  const [isDark,    setIsDark]    = useState(false);
+  const [isDark,    setIsDark]    = useState(() => {
+    const saved = localStorage.getItem('theme');
+    const sysDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return saved === 'dark' || (!saved && sysDark);
+  });
   const [menuOpen,  setMenuOpen]  = useState(false);
-  const location = useLocation();
   const menuRef  = useRef(null);
 
   /* ── Theme init ─────────────────────────────── */
   useEffect(() => {
-    const saved  = localStorage.getItem('theme');
-    const sysDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const dark   = saved === 'dark' || (!saved && sysDark);
-    setIsDark(dark);
-    document.documentElement.classList.toggle('dark', dark);
-
     const mq = window.matchMedia('(prefers-color-scheme: dark)');
     const onChange = (e) => {
       if (!localStorage.getItem('theme')) {
         setIsDark(e.matches);
-        document.documentElement.classList.toggle('dark', e.matches);
       }
     };
+
+    document.documentElement.classList.toggle('dark', isDark);
     mq.addEventListener('change', onChange);
     return () => mq.removeEventListener('change', onChange);
-  }, []);
-
-  /* ── Close menu on route change ─────────────── */
-  useEffect(() => { setMenuOpen(false); }, [location]);
+  }, [isDark]);
 
   /* ── Close menu on outside click ────────────── */
   useEffect(() => {
@@ -86,8 +80,11 @@ export default function Navbar() {
   const toggleTheme = () => {
     const next = !isDark;
     setIsDark(next);
-    document.documentElement.classList.toggle('dark', next);
     localStorage.setItem('theme', next ? 'dark' : 'light');
+  };
+
+  const handleNavClick = () => {
+    setMenuOpen(false);
   };
 
   return (
@@ -100,8 +97,8 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link to="/" className="h-12 w-auto flex items-center shrink-0">
-          <img src="/RAS_logo_light.png" alt="RAS Logo" className="h-full w-auto object-contain dark:hidden scale-[1.35] origin-left" />
-          <img src="/RAS_logo_dark.png"  alt="RAS Logo" className="h-full w-auto object-contain hidden dark:block brightness-0 invert scale-[1.35] origin-left" />
+          <img src="/RAS_logo_light.png" alt="RAS Logo" className="h-full w-auto object-contain dark:hidden scale-[1.35] origin-left" loading="eager" fetchPriority="high" decoding="async" />
+          <img src="/RAS_logo_dark.png"  alt="RAS Logo" className="h-full w-auto object-contain hidden dark:block brightness-0 invert scale-[1.35] origin-left" loading="eager" fetchPriority="high" decoding="async" />
         </Link>
 
         {/* Desktop nav links */}
@@ -110,6 +107,7 @@ export default function Navbar() {
             <Link
               key={to}
               to={to}
+              onClick={handleNavClick}
               className="font-semibold hover:text-primary-dark dark:hover:text-primary-light transition-colors"
             >
               {label}
@@ -156,6 +154,7 @@ export default function Navbar() {
             <Link
               key={to}
               to={to}
+              onClick={handleNavClick}
               className="py-3 px-4 rounded-xl font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/5 hover:text-primary-dark dark:hover:text-primary-light transition-all"
             >
               {label}
@@ -165,6 +164,7 @@ export default function Navbar() {
           {/* Contact Us inside mobile menu */}
           <Link
             to="/contact"
+            onClick={handleNavClick}
             className="btn-primary mt-3 text-center"
           >
             Contact Us

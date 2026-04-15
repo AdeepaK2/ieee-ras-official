@@ -1,7 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { AcademicCapIcon, UserIcon } from '@heroicons/react/24/outline';
 import {
-  facultyAdvisor,
+  facultyAdvisors,
   execCommittee,
   subCommittees,
 } from './data/committeeData';
@@ -9,6 +9,7 @@ import {
 /* ─── Mouse-tracking spotlight card ─────────────────────────────────── */
 const CommitteeCard = ({ name, position, image, photo, large = false }) => {
   const cardRef = useRef(null);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const handleMouseMove = (e) => {
     const card = cardRef.current;
@@ -42,16 +43,27 @@ const CommitteeCard = ({ name, position, image, photo, large = false }) => {
 
       {/* Avatar with glow ring */}
       <div
-        className={`committee-avatar mx-auto rounded-full shadow-sm overflow-hidden flex items-center justify-center text-gray-500 mb-4 ${
+        className={`committee-avatar mx-auto rounded-full shadow-sm overflow-hidden flex items-center justify-center text-gray-500 mb-4 relative ${
           large ? 'w-24 h-24' : 'w-20 h-20'
         }`}
       >
         {image || photo ? (
-          <img
-            src={image || photo}
-            alt={name}
-            className="w-full h-full object-cover"
-          />
+          <>
+            {!imageLoaded && (
+              <div className={`absolute inset-0 bg-gradient-to-br from-gray-200/70 via-gray-100/80 to-gray-200/70 dark:from-zinc-800/70 dark:via-zinc-700/80 dark:to-zinc-800/70 animate-pulse`} />
+            )}
+            <img
+              src={image || photo}
+              alt={name}
+              className={`relative z-10 w-full h-full object-cover transition-all duration-700 ${
+                imageLoaded ? 'opacity-100 blur-0' : 'opacity-0 blur-sm'
+              }`}
+              loading="lazy"
+              decoding="async"
+              onLoad={() => setImageLoaded(true)}
+              onError={() => setImageLoaded(true)}
+            />
+          </>
         ) : (
           <UserIcon className={large ? 'w-12 h-12' : 'w-10 h-10'} />
         )}
@@ -72,6 +84,7 @@ const CommitteeCard = ({ name, position, image, photo, large = false }) => {
 /* ─── Faculty Advisor card (larger, special treatment) ───────────────── */
 const FacultyCard = ({ advisor }) => {
   const cardRef = useRef(null);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const handleMouseMove = (e) => {
     const card = cardRef.current;
@@ -93,29 +106,42 @@ const FacultyCard = ({ advisor }) => {
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="committee-card glass p-8 bg-white/60 dark:bg-black/40 backdrop-blur-xl text-center max-w-sm w-full"
+      className="committee-card glass p-8 bg-white/60 dark:bg-black/40 backdrop-blur-xl text-center max-w-sm w-full flex flex-col"
     >
       <div className="committee-card__spotlight" />
-      <div className="committee-avatar w-24 h-24 mx-auto rounded-full mb-4 shadow-inner overflow-hidden flex items-center justify-center">
+      <div className="committee-avatar w-24 h-24 mx-auto rounded-full mb-4 shadow-inner overflow-hidden flex items-center justify-center shrink-0 relative">
         {advisor.image || advisor.photo ? (
-          <img
-            src={advisor.image || advisor.photo}
-            alt={advisor.name}
-            className="w-full h-full object-cover"
-          />
+          <>
+            {!imageLoaded && (
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-200/70 via-gray-100/80 to-gray-200/70 dark:from-zinc-800/70 dark:via-zinc-700/80 dark:to-zinc-800/70 animate-pulse" />
+            )}
+            <img
+              src={advisor.image || advisor.photo}
+              alt={advisor.name}
+              className={`relative z-10 w-full h-full object-cover transition-all duration-700 ${
+                imageLoaded ? 'opacity-100 blur-0' : 'opacity-0 blur-sm'
+              }`}
+              loading="lazy"
+              decoding="async"
+              onLoad={() => setImageLoaded(true)}
+              onError={() => setImageLoaded(true)}
+            />
+          </>
         ) : (
           <AcademicCapIcon className="w-12 h-12 text-gray-500" />
         )}
       </div>
-      <h3 className="committee-card__name text-2xl font-bold text-gray-900 dark:text-white mb-1">
-        {advisor.name}
-      </h3>
-      <p className="text-primary-dark dark:text-primary-light font-medium mb-3">
-        {advisor.position}
-      </p>
-      <p className="text-sm text-gray-600 dark:text-gray-300">
-        {advisor.description}
-      </p>
+      <div className="flex flex-col flex-grow">
+        <h3 className="committee-card__name text-2xl font-bold text-gray-900 dark:text-white mb-2">
+          {advisor.name}
+        </h3>
+        <p className="text-sm font-bold text-primary-dark/80 dark:text-primary-light/80 uppercase tracking-wider mb-4 min-h-[3rem] flex items-center justify-center">
+          {advisor.position}
+        </p>
+        <p className="text-sm text-gray-600 dark:text-gray-300">
+          {advisor.description}
+        </p>
+      </div>
     </div>
   );
 };
@@ -132,9 +158,11 @@ const CommitteeSection = () => {
           <p className="text-xl text-gray-600 dark:text-gray-300">Current Term 25/26</p>
         </div>
 
-        {/* Faculty Advisor */}
-        <div className="flex justify-center mb-16">
-          <FacultyCard advisor={facultyAdvisor} />
+        {/* Faculty Advisors & Counselors */}
+        <div className="flex flex-wrap justify-center gap-8 mb-16">
+          {facultyAdvisors.map((advisor, idx) => (
+            <FacultyCard key={idx} advisor={advisor} />
+          ))}
         </div>
 
         {/* Exec Committee Grid */}

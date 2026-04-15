@@ -1,0 +1,126 @@
+{
+  "events": [
+    {
+      "id": "robotics-day",
+      "title": "IEEE Robotics Day",
+      "description": "Our flagship gathering showcasing robotics innovation and community engagement",
+      "facebookUrl": "https://web.facebook.com/media/set/?set=a.708897548460084&type=3",
+      "images": [
+        {
+          "name": "RoboticsDay1.jpg",
+          "title": "Robotics Day",
+          "category": "Flagship gathering"
+        },
+        {
+          "name": "RoboticsDay2.jpg",
+          "title": "IEEE Robotics Day",
+          "category": "Audience engagement"
+        },
+        {
+          "name": "RoboticsDay3.jpg",
+          "title": "IEEE Robotics Day",
+          "category": "Closing highlight"
+        },
+        {
+          "name": "RoboticsDay4.jpg",
+          "title": "Robotics Day",
+          "category": "Panel discussion"
+        },
+        {
+          "name": "RoboticsDay5.jpg",
+          "title": "IEEE Robotics Day",
+          "category": "Live Q&A"
+        },
+        {
+          "name": "RoboticsDay6.jpg",
+          "title": "Robotics Day",
+          "category": "Event highlight"
+        }
+      ]
+    },
+    {
+      "id": "bot-talk",
+      "title": "Bot Talk 2.0",
+      "description": "Interactive technical sessions and hands-on demonstrations",
+      "facebookUrl": "https://web.facebook.com/media/set/?set=a.708897548460084&type=3",
+      "images": [
+        {
+          "name": "BotTalk1.jpg",
+          "title": "Bot Talk 2.0",
+          "category": "Interactive session"
+        },
+        {
+          "name": "BotTalk2.jpg",
+          "title": "Bot Talk 2.0",
+          "category": "Audience focus"
+        },
+        {
+          "name": "BotTalk3.jpg",
+          "title": "Bot Talk 2.0",
+          "category": "Live demo"
+        },
+        {
+          "name": "BotTalk4.jpg",
+          "title": "Bot Talk 2.0",
+          "category": "Technical session"
+        },
+        {
+          "name": "BotTalk5.jpg",
+          "title": "Bot Talk 2.0",
+          "category": "Hands-on moment"
+        },
+        {
+          "name": "BotTalk6.jpg",
+          "title": "Bot Talk 2.0",
+          "category": "Workshop moment"
+        }
+      ]
+    },
+    {
+      "id": "gammeddata",
+      "title": "Gammeddata IEEE API Workshop",
+      "description": "Community workshop series exploring innovative technologies",
+      "facebookUrl": "https://web.facebook.com/media/set/?set=a.708897548460084&type=3",
+      "images": [
+        {
+          "name": "GammeddataIEEEApi1.jpeg",
+          "title": "Gammeddata IEEE API",
+          "category": "Community workshop"
+        },
+        {
+          "name": "GammeddataIEEEApi2.jpeg",
+          "title": "Gammeddata IEEE API",
+          "category": "Workshop series"
+        },
+        {
+          "name": "GammeddataIEEEApi3.jpeg",
+          "title": "Gammeddata IEEE API",
+          "category": "Audience session"
+        }
+      ]
+    },
+    {
+      "id": "beyond-pages",
+      "title": "Beyond the Pages",
+      "description": "Highlights from Beyond the Pages sessions and participant moments",
+      "facebookUrl": "https://web.facebook.com/media/set/?set=a.708897548460084&type=3",
+      "images": [
+        {
+          "name": "BeyondThePages1.jpg",
+          "title": "Beyond the Pages",
+          "category": "Session highlight"
+        },
+        {
+          "name": "BeyondThePages2.jpg",
+          "title": "Beyond the Pages",
+          "category": "Audience moment"
+        },
+        {
+          "name": "BeyondThePages3.jpg",
+          "title": "Beyond the Pages",
+          "category": "Event capture"
+        }
+      ]
+    }
+  ]
+}
