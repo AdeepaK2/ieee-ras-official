@@ -88,7 +88,7 @@ const GallerySection = () => {
                 <img
                   src={resolveImageUrl(image.name)}
                   alt={`${image.title} - ${image.category}`}
-                  className={`absolute inset-0 h-full w-full object-cover object-center transition-all duration-700 group-hover:scale-110 ${loadedImages[image.globalIdx] ? 'opacity-100 blur-0' : 'opacity-0 blur-sm'}`}
+                  className={`absolute inset-0 h-full w-full object-cover ${event.id === 'beyond-pages' ? 'object-[center_18%]' : 'object-center'} transition-all duration-700 group-hover:scale-110 ${loadedImages[image.globalIdx] ? 'opacity-100 blur-0' : 'opacity-0 blur-sm'}`}
                   loading="lazy"
                   fetchPriority="auto"
                   decoding="async"
@@ -97,14 +97,6 @@ const GallerySection = () => {
                 />
                 <div className={`absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent transition-opacity duration-500 ${loadedImages[image.globalIdx] ? 'opacity-90' : 'opacity-75'}`} />
                 <div className="absolute inset-0 border border-white/10 rounded-3xl pointer-events-none" />
-
-                <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 lg:p-7 flex items-end">
-                  <div className="w-full transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 className="text-2xl font-bold text-white tracking-tight">
-                      {image.title}
-                    </h3>
-                  </div>
-                </div>
               </div>
             </article>
                 ))}

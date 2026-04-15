@@ -4,7 +4,7 @@
       "id": "robotics-day",
       "title": "IEEE Robotics Day",
       "description": "Our flagship gathering showcasing robotics innovation and community engagement",
-      "facebookUrl": "https://www.facebook.com/share/p/18BfhH9aT7/",
+      "facebookUrl": "https://web.facebook.com/media/set/?set=a.708897548460084&type=3",
       "images": [
         {
           "name": "RoboticsDay1.jpg",
@@ -35,21 +35,6 @@
           "name": "RoboticsDay6.jpg",
           "title": "Robotics Day",
           "category": "Event highlight"
-        },
-        {
-          "name": "RoboticsDay7.jpg",
-          "title": "Robotics Day",
-          "category": "Community moment"
-        },
-        {
-          "name": "RoboticsDay8.jpg",
-          "title": "Robotics Day",
-          "category": "Stage capture"
-        },
-        {
-          "name": "RoboticsDay9.jpg",
-          "title": "Robotics Day",
-          "category": "Closing frame"
         }
       ]
     },
@@ -57,7 +42,7 @@
       "id": "bot-talk",
       "title": "Bot Talk 2.0",
       "description": "Interactive technical sessions and hands-on demonstrations",
-      "facebookUrl": "https://www.facebook.com/share/p/1KXPgK6mQQ/",
+      "facebookUrl": "https://web.facebook.com/media/set/?set=a.708897548460084&type=3",
       "images": [
         {
           "name": "BotTalk1.jpg",
@@ -95,7 +80,7 @@
       "id": "gammeddata",
       "title": "Gammeddata IEEE API Workshop",
       "description": "Community workshop series exploring innovative technologies",
-      "facebookUrl": "https://www.facebook.com/rasieeeuom",
+      "facebookUrl": "https://web.facebook.com/media/set/?set=a.708897548460084&type=3",
       "images": [
         {
           "name": "GammeddataIEEEApi1.jpeg",
@@ -111,6 +96,29 @@
           "name": "GammeddataIEEEApi3.jpeg",
           "title": "Gammeddata IEEE API",
           "category": "Audience session"
+        }
+      ]
+    },
+    {
+      "id": "beyond-pages",
+      "title": "Beyond the Pages",
+      "description": "Highlights from Beyond the Pages sessions and participant moments",
+      "facebookUrl": "https://web.facebook.com/media/set/?set=a.708897548460084&type=3",
+      "images": [
+        {
+          "name": "BeyondThePages1.jpg",
+          "title": "Beyond the Pages",
+          "category": "Session highlight"
+        },
+        {
+          "name": "BeyondThePages2.jpg",
+          "title": "Beyond the Pages",
+          "category": "Audience moment"
+        },
+        {
+          "name": "BeyondThePages3.jpg",
+          "title": "Beyond the Pages",
+          "category": "Event capture"
         }
       ]
     }

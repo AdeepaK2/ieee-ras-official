@@ -1,5 +1,21 @@
 import React from 'react';
-import { FlagIcon, CpuChipIcon, BuildingLibraryIcon, BriefcaseIcon } from '@heroicons/react/24/outline';
+
+const eventBannerModules = import.meta.glob('./assets/event-banner/*.{jpg,jpeg,png,webp}', {
+  eager: true,
+  import: 'default',
+});
+
+const eventBannerUrlsByName = Object.entries(eventBannerModules).reduce((acc, [modulePath, moduleUrl]) => {
+  const fileName = modulePath.split('/').pop();
+  if (fileName) {
+    acc[fileName] = moduleUrl;
+  }
+  return acc;
+}, {});
+
+const resolveEventBannerUrl = (fileName) => {
+  return fileName ? eventBannerUrlsByName[fileName] || '' : '';
+};
 
 const events = [
   {
@@ -9,7 +25,7 @@ const events = [
     desc: 'A competitive robotics challenge where students design and develop autonomous micromouse robots capable of navigating complex maze environments.',
     objectives: 'Promote hands-on learning in robotics, encourage innovation in autonomous navigation, and strengthen teamwork.',
     highlights: ['Custom-built maze arena', 'Technical mentoring sessions', 'Speed-based performance evaluation', 'Industry judging panel'],
-    img: <FlagIcon className="w-24 h-24 text-primary-dark dark:text-primary-light drop-shadow-xl" />,
+    banner: 'MazeX.jpg',
   },
   {
     type: 'Past',
@@ -18,7 +34,7 @@ const events = [
     desc: 'A technical knowledge-sharing session connecting students with industry experts and researchers to discuss emerging trends in robotics and automation.',
     objectives: 'Introduce students to modern robotics research and bridge academic concepts with industry practices.',
     highlights: ['100+ participants', 'Expert guest speakers', 'Exposure to industrial applications'],
-    img: <CpuChipIcon className="w-24 h-24 text-primary-dark dark:text-primary-light drop-shadow-xl" />,
+    banner: 'BotTalk.jpg',
   },
   {
     type: 'Past',
@@ -27,7 +43,7 @@ const events = [
     desc: 'A platform to introduce our student chapter and its initiatives to new undergraduates, showcasing ongoing projects and flagship events.',
     objectives: 'Present the chapter’s vision, increase awareness of opportunities, and encourage new member engagement.',
     highlights: ['Strong freshers participation', 'Substantial membership growth'],
-    img: <BuildingLibraryIcon className="w-24 h-24 text-primary-dark dark:text-primary-light drop-shadow-xl" />,
+    banner: 'OpenWeek.jpg',
   },
   {
     type: 'Past',
@@ -36,7 +52,7 @@ const events = [
     desc: 'The AGM marked the transition of leadership and reviewed the chapter’s activities, achievements, and future roadmap.',
     objectives: 'Present annual performance report, appoint new Executive Committee, outline plans for the upcoming term.',
     highlights: ['Leadership transition', 'Strong member engagement'],
-    img: <BriefcaseIcon className="w-24 h-24 text-primary-dark dark:text-primary-light drop-shadow-xl" />,
+    banner: 'AGM.jpg',
   }
 ];
 
@@ -55,10 +71,16 @@ const EventsSection = () => {
           {events.map((evt, idx) => (
             <div key={idx} className="glass overflow-hidden flex flex-col md:flex-row bg-white/60 dark:bg-black/40 backdrop-blur-xl group hover:shadow-2xl transition-all duration-500 border border-transparent hover:border-primary-light/20">
 
-              {/* Event Visual placeholder */}
-              <div className="md:w-1/3 bg-gray-100 dark:bg-zinc-800 flex items-center justify-center min-h-[250px] relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary-dark/10 to-transparent"></div>
-                <div className="group-hover:scale-110 transition-transform duration-500">{evt.img}</div>
+              {/* Event Banner */}
+              <div className="md:w-1/3 bg-gray-100 dark:bg-zinc-800 min-h-[250px] relative overflow-hidden">
+                <img
+                  src={resolveEventBannerUrl(evt.banner)}
+                  alt={`${evt.title} banner`}
+                  className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-black/45 via-black/20 to-transparent"></div>
                 <div className="absolute top-4 left-4 bg-white/80 dark:bg-black/80 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-primary-dark dark:text-primary-light border border-black/5 dark:border-white/10 uppercase tracking-wide">
                   {evt.type}
                 </div>
