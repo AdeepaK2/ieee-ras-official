@@ -8,6 +8,7 @@ import CommitteeSection from './CommitteeSection';
 import EventsSection from './EventsSection';
 import GallerySection from './GallerySection';
 import JoinUsSection from './JoinUsSection';
+import RegistrationClosed from './RegistrationClosed';
 import ContactSection from './ContactSection';
 import Footer from './Footer';
 import './App.css';
@@ -38,6 +39,7 @@ function App() {
           <Route path="/events" element={<EventsSection />} />
           <Route path="/gallery" element={<GallerySection />} />
           <Route path="/join" element={<JoinUsSection />} />
+          <Route path="/join/closed" element={<RegistrationClosed />} />
           <Route path="/contact" element={<ContactSection />} />
         </Routes>
       </main>
