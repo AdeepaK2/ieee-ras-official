@@ -1,70 +1,69 @@
-
-import RohanMunasinghe from '../assets/memberImages/Rohan Munasinghe.jpg';
-import BuddhikaJayasekara from '../assets/memberImages/Buddhika Jayasekara.jpg';
+import RohanMunasinghe from '../assets/memberImages/Rohan Munasinghe.webp';
+import BuddhikaJayasekara from '../assets/memberImages/Buddhika Jayasekara.webp';
 
 //Executive Committee
-import SahasEashan from '../assets/memberImages/Sahas Eashan.jpg';
-import BiniduTishan from '../assets/memberImages/Binidu Tishan.jpeg';
-import RashmithaHansamal from '../assets/memberImages/Rashmitha Hansamal.jpeg';
-import PankajaBalasooriya from '../assets/memberImages/Pankaja Balasooriya.jpg';
-import AdeepaKularathna from '../assets/memberImages/Adeepa Kularathna.jpeg';
-import SasinduHasanga from '../assets/memberImages/Sasindu Hasanga.jpg';
+import SahasEashan from '../assets/memberImages/Sahas Eashan.webp';
+import BiniduTishan from '../assets/memberImages/Binidu Tishan.webp';
+import RashmithaHansamal from '../assets/memberImages/Rashmitha Hansamal.webp';
+import PankajaBalasooriya from '../assets/memberImages/Pankaja Balasooriya.webp';
+import AdeepaKularathna from '../assets/memberImages/Adeepa Kularathna.webp';
+import SasinduHasanga from '../assets/memberImages/Sasindu Hasanga.webp';
 
 //Web & Marketing Committee
-import IshanSasanka from '../assets/memberImages/Ishan Sasanka.jpg';
-import BuddhimaGayashan from '../assets/memberImages/Buddhima Gayashan.jpg';
-import SahanHarshajith from '../assets/memberImages/Sahan Harshajith.jpg';
-import MishalSafeek from '../assets/memberImages/Mishal Safeek.jpg';
-import Thennakoon from '../assets/memberImages/Thennakoon.jpg';
-import AkashGandhawa from '../assets/memberImages/Akash Gandhawa.jpg';
-import InukaGunathilake from '../assets/memberImages/Inuka Gunathilake.jpg';
-import SadeepHerath from '../assets/memberImages/Sadeep Herath.jpg';
-import ChandupaHulangamuwa from '../assets/memberImages/Chandupa Hulangamuwa.png';
+import IshanSasanka from '../assets/memberImages/Ishan Sasanka.webp';
+import BuddhimaGayashan from '../assets/memberImages/Buddhima Gayashan.webp';
+import SahanHarshajith from '../assets/memberImages/Sahan Harshajith.webp';
+import MishalSafeek from '../assets/memberImages/Mishal Safeek.webp';
+import Thennakoon from '../assets/memberImages/Thennakoon.webp';
+import AkashGandhawa from '../assets/memberImages/Akash Gandhawa.webp';
+import InukaGunathilake from '../assets/memberImages/Inuka Gunathilake.webp';
+import SadeepHerath from '../assets/memberImages/Sadeep Herath.webp';
+import ChandupaHulangamuwa from '../assets/memberImages/Chandupa Hulangamuwa.webp';
 
 //Design Committee
-import ChamodWijesinghe from '../assets/memberImages/Chamod Wijesinghe.jpg';
+import ChamodWijesinghe from '../assets/memberImages/Chamod Wijesinghe.webp';
 import ImalWickramaArachchi from '../assets/memberImages/Imal Wickrama Arachchi.webp';
-import RajithaLakshan from '../assets/memberImages/Rajitha Lakshan.jpg';
-import SenujaDilmith from '../assets/memberImages/Senuja Dilmith.png';
-import ChamothLiyanaarachchi from '../assets/memberImages/Chamoth Liyanaarachchi.jpeg';
-import AkhilaNisal from '../assets/memberImages/Akhila Nisal.png';
+import RajithaLakshan from '../assets/memberImages/Rajitha Lakshan.webp';
+import SenujaDilmith from '../assets/memberImages/Senuja Dilmith.webp';
+import ChamothLiyanaarachchi from '../assets/memberImages/Chamoth Liyanaarachchi.webp';
+import AkhilaNisal from '../assets/memberImages/Akhila Nisal.webp';
 
 //Editorial Committee
-import ThanujaMahalingam from '../assets/memberImages/Thanuja Mahalingam.jpg';
-import MinothmaSithumini from '../assets/memberImages/Minothma Sithumini.jpg';
-import SarjanaShanmugarajah from '../assets/memberImages/Sarjana Shanmugarajah.jpg';
-import NimashaAmarathunga from '../assets/memberImages/Nimasha Amarathunga.jpg';
-import RavichandranSobatharsan from '../assets/memberImages/Ravichandran Sobatharsan.jpg';
+import ThanujaMahalingam from '../assets/memberImages/Thanuja Mahalingam.webp';
+import MinothmaSithumini from '../assets/memberImages/Minothma Sithumini.webp';
+import SarjanaShanmugarajah from '../assets/memberImages/Sarjana Shanmugarajah.webp';
+import NimashaAmarathunga from '../assets/memberImages/Nimasha Amarathunga.webp';
+import RavichandranSobatharsan from '../assets/memberImages/Ravichandran Sobatharsan.webp';
 
 //Programme & Logistics Committee
-import LithminKarunarathna from '../assets/memberImages/Lithmin Karunarathna.jpg';
-import ChaniruDewnitha from '../assets/memberImages/Chaniru Dewnitha.jpg';
-import HelshiSaseka from '../assets/memberImages/Helshi Saseka.jpeg';
-import KavinduNethsara from '../assets/memberImages/Kavindu Nethsara.jpg';
-import SisuruNavod from '../assets/memberImages/Sisuru Navod.jpg';
-import JainduDevnaka from '../assets/memberImages/Jaindu Devnaka.jpg';
-import NipunSankalana from '../assets/memberImages/Nipun Sankalana.jpg';
-import LakminaSandesh from '../assets/memberImages/Lakmina Sandesh.jpg';
-import ShaliniMadhuka from '../assets/memberImages/Shalini Madhuka.jpg';
-import AnushaDananjaya from '../assets/memberImages/Anusha Dananjaya.jpg';
-import KavinduLakshan from '../assets/memberImages/Kavindu Lakshan.jpeg';
+import LithminKarunarathna from '../assets/memberImages/Lithmin Karunarathna.webp';
+import ChaniruDewnitha from '../assets/memberImages/Chaniru Dewnitha.webp';
+import HelshiSaseka from '../assets/memberImages/Helshi Saseka.webp';
+import KavinduNethsara from '../assets/memberImages/Kavindu Nethsara.webp';
+import SisuruNavod from '../assets/memberImages/Sisuru Navod.webp';
+import JainduDevnaka from '../assets/memberImages/Jaindu Devnaka.webp';
+import NipunSankalana from '../assets/memberImages/Nipun Sankalana.webp';
+import LakminaSandesh from '../assets/memberImages/Lakmina Sandesh.webp';
+import ShaliniMadhuka from '../assets/memberImages/Shalini Madhuka.webp';
+import AnushaDananjaya from '../assets/memberImages/Anusha Dananjaya.webp';
+import KavinduLakshan from '../assets/memberImages/Kavindu Lakshan.webp';
 
 //Volunteer Management Committee
-import LaksandiDenipitiya from '../assets/memberImages/Laksandi Denipitiya.jpeg';
-import WGRHeshan from '../assets/memberImages/Rishmika Heshan.jpeg';
-import ChanukaGimhan from '../assets/memberImages/Chanuka Gimhan.jpg';
-import NimsikaBosilu from '../assets/memberImages/Nimsika Bosilu.jpg';
-import ChanupaGurusinghe from '../assets/memberImages/Chanupa Gurusinghe.png';
-import ThiseniRathnayake from '../assets/memberImages/Thiseni Rathnayake.jpeg';
+import LaksandiDenipitiya from '../assets/memberImages/Laksandi Denipitiya.webp';
+import WGRHeshan from '../assets/memberImages/Rishmika Heshan.webp';
+import ChanukaGimhan from '../assets/memberImages/Chanuka Gimhan.webp';
+import NimsikaBosilu from '../assets/memberImages/Nimsika Bosilu.webp';
+import ChanupaGurusinghe from '../assets/memberImages/Chanupa Gurusinghe.webp';
+import ThiseniRathnayake from '../assets/memberImages/Thiseni Rathnayake.webp';
 
 //Finance Committee
-import SuvinduRanchigoda from '../assets/memberImages/Suvindu Ranchigoda.jpg';
-import DulsikaMendis from '../assets/memberImages/Dulsika Mendis.jpeg';
-import SasinduSiyath from '../assets/memberImages/Sasindu Siyath.jpg';
-import InduwaraRanaweera from '../assets/memberImages/Induwara Ranaweera.jpg';
-import ChalinVanderslott from '../assets/memberImages/Chalin Vanderslott.jpg';
-import ThisangiDewmini from '../assets/memberImages/Thisangi Dewmini.jpg';
-import ThiseniAbeykoon from '../assets/memberImages/Thiseni Abeykoon.jpeg';
+import SuvinduRanchigoda from '../assets/memberImages/Suvindu Ranchigoda.webp';
+import DulsikaMendis from '../assets/memberImages/Dulsika Mendis.webp';
+import SasinduSiyath from '../assets/memberImages/Sasindu Siyath.webp';
+import InduwaraRanaweera from '../assets/memberImages/Induwara Ranaweera.webp';
+import ChalinVanderslott from '../assets/memberImages/Chalin Vanderslott.webp';
+import ThisangiDewmini from '../assets/memberImages/Thisangi Dewmini.webp';
+import ThiseniAbeykoon from '../assets/memberImages/Thiseni Abeykoon.webp';
 
 export const facultyAdvisors = [
 	{

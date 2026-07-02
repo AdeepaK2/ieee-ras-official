@@ -25,7 +25,7 @@ const events = [
     desc: 'A competitive robotics challenge where students design and develop autonomous micromouse robots capable of navigating complex maze environments.',
     objectives: 'Promote hands-on learning in robotics, encourage innovation in autonomous navigation, and strengthen teamwork.',
     highlights: ['Custom-built maze arena', 'Technical mentoring sessions', 'Speed-based performance evaluation', 'Industry judging panel'],
-    banner: 'MazeX.jpg',
+    banner: 'MazeX.webp',
   },
   {
     type: 'Past',
@@ -34,7 +34,7 @@ const events = [
     desc: 'A technical knowledge-sharing session connecting students with industry experts and researchers to discuss emerging trends in robotics and automation.',
     objectives: 'Introduce students to modern robotics research and bridge academic concepts with industry practices.',
     highlights: ['100+ participants', 'Expert guest speakers', 'Exposure to industrial applications'],
-    banner: 'BotTalk.jpg',
+    banner: 'BotTalk.webp',
   },
   {
     type: 'Past',
@@ -43,7 +43,7 @@ const events = [
     desc: 'A platform to introduce our student chapter and its initiatives to new undergraduates, showcasing ongoing projects and flagship events.',
     objectives: 'Present the chapter’s vision, increase awareness of opportunities, and encourage new member engagement.',
     highlights: ['Strong freshers participation', 'Substantial membership growth'],
-    banner: 'OpenWeek.jpg',
+    banner: 'OpenWeek.webp',
   },
   {
     type: 'Past',
@@ -52,7 +52,7 @@ const events = [
     desc: 'The AGM marked the transition of leadership and reviewed the chapter’s activities, achievements, and future roadmap.',
     objectives: 'Present annual performance report, appoint new Executive Committee, outline plans for the upcoming term.',
     highlights: ['Leadership transition', 'Strong member engagement'],
-    banner: 'AGM.jpg',
+    banner: 'AGM.webp',
   }
 ];
 

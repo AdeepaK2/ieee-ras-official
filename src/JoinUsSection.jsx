@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { RocketLaunchIcon, UserPlusIcon } from '@heroicons/react/24/outline';
 
 const JoinUsSection = () => {
@@ -56,9 +57,9 @@ const JoinUsSection = () => {
             </p>
 
             <div className="space-y-4">
-              <a href="#" className="block w-full btn-primary text-lg shadow-primary-dark/30 shadow-lg">
+              <Link to="/join/closed" className="block w-full btn-primary text-lg shadow-primary-dark/30 shadow-lg">
                 Membership Form Link -&gt;
-              </a>
+              </Link>
               <p className="text-xs text-gray-500 dark:text-gray-300">
                 *Open exclusively to University of Moratuwa undergraduates.
               </p>
